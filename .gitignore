@@ -1,2 +1,11 @@
 logs/
 .DS_Store
+
+# Sparkle's appcast is regenerated in this checkout, and it leaves two things behind
+# that must not enter a site's history. `generate_appcast` moves superseded updates
+# into old_updates/, and the dmg is staged here on its way to the release — normally
+# `cargo xtask appcast` takes it back out, but only after a successful run, so a failed
+# one leaves it lying in the working tree. A committed binary is one git can never
+# forget, and the whole reason the dmg lives on a release rather than in a repo.
+old_updates/
+*.dmg

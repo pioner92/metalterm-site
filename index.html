@@ -286,9 +286,9 @@ metal 3 · macOS 14+ · apple silicon
 <span style="width:52px;height:52px;border-radius:14px;background:linear-gradient(150deg,#1e1b20,#0d0d10);border:.5px solid rgba(255,255,255,.14);display:flex;align-items:center;justify-content:center;font:700 22px/1 'JetBrains Mono',monospace;color:var(--ac);box-shadow:0 20px 40px -20px rgba(255,180,110,.5)">❯</span>
 <h2 style="margin:0;max-width:620px;font:700 clamp(26px,3.6vw,40px)/1.14 'JetBrains Mono',monospace;letter-spacing:-.035em;color:#f5efe4;text-wrap:balance">Open it once and you won't go back</h2>
 <p style="margin:0;max-width:520px;font:400 13.5px/1.75 'JetBrains Mono',monospace;color:#8f8a82;text-wrap:pretty">Free while in beta. Your shell and your dotfiles stay exactly as they are — Metalterm never edits a line of them.</p>
-<a href="#download" id="downloadCta" style="display:flex;align-items:center;gap:12px;height:54px;padding:0 30px;border-radius:12px;background:var(--ac);color:#0b0b0f;font:500 15px/1 'JetBrains Mono',monospace;box-shadow:0 22px 50px -18px var(--ac);transition:transform .14s ease,filter .2s ease" style-hover="filter:brightness(1.07);color:#0b0b0f" style-active="transform:scale(.975)"><span style="font-size:18px;line-height:1"></span><span id="dlLabel">Download Metalterm</span></a>
+<a href="https://github.com/pioner92/metalterm-site/releases/download/downloads/Metalterm-0.1.0.dmg" id="downloadCta" download style="display:flex;align-items:center;gap:12px;height:54px;padding:0 30px;border-radius:12px;background:var(--ac);color:#0b0b0f;font:500 15px/1 'JetBrains Mono',monospace;box-shadow:0 22px 50px -18px var(--ac);transition:transform .14s ease,filter .2s ease" style-hover="filter:brightness(1.07);color:#0b0b0f" style-active="transform:scale(.975)"><span style="font-size:18px;line-height:1"></span><span id="dlLabel">Download Metalterm</span></a>
 <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:22px;font:400 11.5px/1 'JetBrains Mono',monospace;color:#5f5c56">
-<span>Metalterm.dmg · 2.2 MB</span><span>macOS 14 Sonoma or later</span><span>apple silicon</span><span>notarised by apple</span>
+<span id="dlFacts">Metalterm-0.1.0.dmg · 2.5 MB</span><span>macOS 14 Sonoma or later</span><span>apple silicon</span><span>notarised by apple</span>
 </div>
 </div>
 </div>
@@ -581,8 +581,7 @@ metal 3 · macOS 14+ · apple silicon
     after(t + 620 + 1500, runScene);
   }
 
-  function onDownload(e) {
-    e.preventDefault();
+  function onDownload() {
     if (dlLabelEl) dlLabelEl.textContent = "Starting download…";
     after(2600, () => { if (dlLabelEl) dlLabelEl.textContent = "Download Metalterm"; });
   }

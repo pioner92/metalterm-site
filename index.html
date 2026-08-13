@@ -23,6 +23,7 @@ a{color:#ffb46e;text-decoration:none}a:hover{color:#ffd0a2}
 @keyframes mtDrift{0%,100%{transform:translate3d(0,0,0) scale(1)}50%{transform:translate3d(0,-16px,0) scale(1.05)}}
 [data-rev]{opacity:0;transform:translateY(22px);transition:opacity .7s cubic-bezier(.22,.9,.24,1),transform .7s cubic-bezier(.22,.9,.24,1)}
 [data-rev].in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
 </style>
 </head>
 <body>
@@ -48,7 +49,7 @@ a{color:#ffb46e;text-decoration:none}a:hover{color:#ffd0a2}
 </div>
 
 <div id="top" style="position:relative;overflow:hidden;padding:88px 26px 0">
-<div style="position:absolute;top:-190px;left:50%;width:1100px;height:640px;margin-left:-550px;border-radius:50%;background:radial-gradient(closest-side,var(--acGlow),transparent 72%);filter:blur(30px);animation:mtDrift 15s ease-in-out infinite;pointer-events:none"></div>
+<div style="position:absolute;top:-190px;left:50%;width:1100px;height:640px;margin-left:-550px;border-radius:50%;background:radial-gradient(closest-side,var(--acGlow),transparent 72%);filter:blur(30px);animation:mtDrift 15s ease-in-out infinite;pointer-events:none;will-change:transform"></div>
 <div style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 62%,#08080b 100%),repeating-linear-gradient(90deg,rgba(255,255,255,.022) 0 1px,transparent 1px 88px);pointer-events:none"></div>
 
 <div style="position:relative;max-width:1000px;margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:26px;text-align:center">
@@ -629,7 +630,8 @@ metal 3 · macOS 14+ · apple silicon
   bindStateStyles();
 
   applyTheme(theme, false);
-  after(900, runScene);
+  const reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (!reduceMotion) after(900, runScene);
 
   if (rootEl && "IntersectionObserver" in window) {
     const io = new IntersectionObserver((es) => {

@@ -3,13 +3,16 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Metalterm — The terminal your GPU draws.</title>
-<meta name="description" content="A GPU-rendered macOS terminal built on Metal 3: command blocks, a fuzzy command palette, GPU-accelerated search, and 14 themes.">
+<title>Metalterm — the terminal your GPU draws</title>
+<meta name="description" content="A GPU-rendered macOS terminal: 120 fps scrollback, command blocks, palette and search built in. Free while in beta.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Metalterm — the terminal your GPU draws">
+<meta property="og:description" content="Every frame goes through Metal 3. Command blocks, palette and search built in.">
 <link rel="icon" href="assets/favicon.ico" sizes="32x32">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 <link rel="manifest" href="assets/site.webmanifest">
-<meta name="theme-color" content="#0b0b0f">
+<meta name="theme-color" content="#08080b">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
@@ -24,19 +27,24 @@ a{color:#ffb46e;text-decoration:none}a:hover{color:#ffd0a2}
 @keyframes mtDrift{0%,100%{transform:translate3d(0,0,0) scale(1)}50%{transform:translate3d(0,-16px,0) scale(1.05)}}
 [data-rev]{opacity:0;transform:translateY(22px);transition:opacity .7s cubic-bezier(.22,.9,.24,1),transform .7s cubic-bezier(.22,.9,.24,1)}
 [data-rev].in{opacity:1;transform:none}
+[data-r=root]{--pad:26px;--sec:98px;--g4:repeat(4,1fr);--g3:repeat(3,1fr);--g5:repeat(5,1fr);--gtwo:1fr 1.15fr;--gspeed:1fr 1fr;--gfaq:250px 1fr;--faqgap:22px;--gap2:44px;--termh:398px;--tfs:12.5px;--tfs2:11.5px;--navlinks:flex;--beta:inline;--burger:none;--cardp:46px;--dlp:56px 40px;--chiph:30px;--btnh:34px;--statusgap:14px}
+@media (max-width:1000px){[data-r=root]{--gtwo:1fr;--gspeed:1fr;--gap2:30px;--g3:repeat(2,1fr);--sec:80px;--cardp:32px}}
+@media (max-width:900px){[data-r=root]{--navlinks:none;--beta:none;--burger:flex}}
+@media (max-width:720px){[data-r=root]{--g4:repeat(2,1fr);--g5:repeat(3,1fr);--g3:1fr;--sec:64px;--pad:18px;--termh:300px;--tfs:11px;--tfs2:10.5px;--gfaq:1fr;--faqgap:7px;--cardp:26px 22px;--dlp:40px 22px;--chiph:36px;--btnh:40px;--statusgap:10px}}
+@media (max-width:480px){[data-r=root]{--g5:repeat(2,1fr);--termh:252px;--pad:15px;--tfs:10.6px;--tfs2:10px}}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
 </style>
 </head>
 <body>
-<div id="rootRef" style="--ac:#ffb46e;--ac2:#ffd0a2;--acGlow:rgba(255,180,110,.17);--tac:#ffb46e;--tac2:#ffd0a2;--tbg:#0b0b0f;--tbg0:#0a0a0e;--tfg:#e2d8c9;--tdim:#8f8a82;--tfaint:#4d4a45;--tline2:#2e2d31;--tok:#8fa896;--tbad:#d4826f;background:#08080b;color:#e2d8c9;font-family:'JetBrains Mono',ui-monospace,SFMono-Regular,monospace;overflow-x:hidden">
+<div id="rootRef" data-r="root" style="-webkit-tap-highlight-color:transparent;--ac:#ffb46e;--ac2:#ffd0a2;--acGlow:rgba(255,180,110,.17);--tac:#ffb46e;--tac2:#ffd0a2;--tbg:#0b0b0f;--tbg0:#0a0a0e;--tfg:#e2d8c9;--tdim:#8f8a82;--tfaint:#4d4a45;--tline2:#2e2d31;--tok:#8fa896;--tbad:#d4826f;background:#08080b;color:#e2d8c9;font-family:'JetBrains Mono',ui-monospace,SFMono-Regular,monospace;overflow-x:hidden">
 
 <div style="position:sticky;top:0;z-index:40;backdrop-filter:blur(18px) saturate(1.4);-webkit-backdrop-filter:blur(18px) saturate(1.4);background:rgba(8,8,11,.74);border-bottom:.5px solid rgba(255,255,255,.07)">
-<div style="max-width:1180px;margin:0 auto;padding:0 26px;height:60px;display:flex;align-items:center;gap:24px">
+<div style="max-width:1180px;margin:0 auto;padding:0 var(--pad);height:60px;display:flex;align-items:center;gap:clamp(12px,2.4vw,24px)">
 <a href="#top" style="display:flex;align-items:center;gap:10px;color:#e2d8c9">
 <span style="width:26px;height:26px;border-radius:7px;background:linear-gradient(150deg,#1c1a1f,#0d0d10);border:.5px solid rgba(255,255,255,.13);display:flex;align-items:center;justify-content:center;font:700 12px/1 'JetBrains Mono',monospace;color:var(--ac)">❯</span>
 <span style="font:700 14px/1 'JetBrains Mono',monospace;letter-spacing:-.02em">Metalterm</span>
 </a>
-<div style="display:flex;align-items:center;gap:22px;font:400 12.5px/1 'JetBrains Mono',monospace">
+<div style="display:var(--navlinks);align-items:center;gap:22px;font:400 13px/1 'JetBrains Mono',monospace">
 <a href="#features" style="color:#8f8a82" style-hover="color:#e2d8c9">features</a>
 <a href="#blocks" style="color:#8f8a82" style-hover="color:#e2d8c9">blocks</a>
 <a href="#themes" style="color:#8f8a82" style-hover="color:#e2d8c9">themes</a>
@@ -44,12 +52,20 @@ a{color:#ffb46e;text-decoration:none}a:hover{color:#ffd0a2}
 <a href="#faq" style="color:#8f8a82" style-hover="color:#e2d8c9">faq</a>
 </div>
 <div style="flex:1"></div>
-<span style="font:400 11.5px/1 'JetBrains Mono',monospace;color:#5f5c56">beta</span>
-<a href="#download" style="display:flex;align-items:center;gap:8px;height:34px;padding:0 15px;border-radius:9px;background:var(--ac);color:#0b0b0f;font:500 12.5px/1 'JetBrains Mono',monospace;transition:transform .14s ease,filter .2s ease" style-hover="filter:brightness(1.08);color:#0b0b0f" style-active="transform:scale(.96)">Download<span style="opacity:.55">↓</span></a>
+<span style="display:var(--beta);font:400 12px/1 'JetBrains Mono',monospace;color:#8b857b">beta</span>
+<a href="#download" style="display:flex;flex:none;align-items:center;gap:8px;height:var(--btnh);padding:0 15px;border-radius:9px;background:var(--ac);color:#0b0b0f;font:500 13px/1 'JetBrains Mono',monospace;transition:transform .14s ease,filter .2s ease" style-hover="filter:brightness(1.08);color:#0b0b0f" style-active="transform:scale(.96)">Download<span style="opacity:.55">↓</span></a>
+<button id="menuBtn" aria-label="Menu" style="display:var(--burger);flex:none;align-items:center;justify-content:center;width:40px;height:40px;margin-right:-8px;border-radius:10px;background:rgba(255,255,255,.045);border:.5px solid rgba(255,255,255,.1);color:#e2d8c9;font:400 16px/1 'JetBrains Mono',monospace;cursor:pointer;outline:none;transition:background .2s ease" style-active="background:rgba(255,255,255,.1)"><span id="menuGlyph">≡</span></button>
+</div>
+<div id="mobileMenu" style="display:none;flex-direction:column;padding:4px var(--pad) 14px;border-top:.5px solid rgba(255,255,255,.06);animation:mtUp .22s cubic-bezier(.22,.9,.24,1) both">
+<a href="#features" style="display:flex;align-items:center;min-height:48px;color:#c8bdae;font:400 15px/1 'JetBrains Mono',monospace;border-bottom:.5px solid rgba(255,255,255,.05)">features</a>
+<a href="#blocks" style="display:flex;align-items:center;min-height:48px;color:#c8bdae;font:400 15px/1 'JetBrains Mono',monospace;border-bottom:.5px solid rgba(255,255,255,.05)">blocks</a>
+<a href="#themes" style="display:flex;align-items:center;min-height:48px;color:#c8bdae;font:400 15px/1 'JetBrains Mono',monospace;border-bottom:.5px solid rgba(255,255,255,.05)">themes</a>
+<a href="#speed" style="display:flex;align-items:center;min-height:48px;color:#c8bdae;font:400 15px/1 'JetBrains Mono',monospace;border-bottom:.5px solid rgba(255,255,255,.05)">speed</a>
+<a href="#faq" style="display:flex;align-items:center;min-height:48px;color:#c8bdae;font:400 15px/1 'JetBrains Mono',monospace">faq</a>
 </div>
 </div>
 
-<div id="top" style="position:relative;overflow:hidden;padding:88px 26px 0">
+<div id="top" style="position:relative;overflow:hidden;padding:clamp(52px,8vw,88px) var(--pad) 0">
 <div style="position:absolute;top:-190px;left:50%;width:1100px;height:640px;margin-left:-550px;border-radius:50%;background:radial-gradient(closest-side,var(--acGlow),transparent 72%);filter:blur(30px);animation:mtDrift 15s ease-in-out infinite;pointer-events:none;will-change:transform"></div>
 <div style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 62%,#08080b 100%),repeating-linear-gradient(90deg,rgba(255,255,255,.022) 0 1px,transparent 1px 88px);pointer-events:none"></div>
 
@@ -59,15 +75,15 @@ a{color:#ffb46e;text-decoration:none}a:hover{color:#ffd0a2}
 metal 3 · macOS 14+ · apple silicon
 </div>
 
-<h1 style="margin:0;max-width:900px;font:700 clamp(38px,6.4vw,74px)/1.04 'JetBrains Mono',monospace;letter-spacing:-.038em;color:#f5efe4;text-wrap:balance;animation:mtUp .6s .05s cubic-bezier(.22,.9,.24,1) both">The terminal your<br><span style="color:var(--ac)">GPU</span> draws.</h1>
+<h1 style="margin:0;max-width:900px;font:700 clamp(29px,6.8vw,74px)/1.04 'JetBrains Mono',monospace;letter-spacing:-.038em;color:#f5efe4;text-wrap:balance;animation:mtUp .6s .05s cubic-bezier(.22,.9,.24,1) both">The terminal your<br><span style="color:var(--ac)">GPU</span> draws.</h1>
 
-<p style="margin:0;max-width:640px;font:400 15px/1.75 'JetBrains Mono',monospace;color:#9d968c;text-wrap:pretty;animation:mtUp .6s .1s cubic-bezier(.22,.9,.24,1) both">Every frame goes through Metal 3. A million-line log scrolls at 120 fps, every command is its own block, and search and the palette are one keystroke away.</p>
+<p style="margin:0;max-width:640px;font:400 clamp(14px,3.4vw,16px)/1.7 'JetBrains Mono',monospace;color:#9d968c;text-wrap:pretty;animation:mtUp .6s .1s cubic-bezier(.22,.9,.24,1) both">Every frame goes through Metal 3. A million-line log scrolls at 120 fps, every command is its own block, and search and the palette are one keystroke away.</p>
 
 <div style="display:flex;flex-direction:column;align-items:center;gap:14px;animation:mtUp .6s .15s cubic-bezier(.22,.9,.24,1) both">
-<a href="#download" style="display:flex;align-items:center;gap:12px;height:52px;padding:0 26px;border-radius:12px;background:var(--ac);color:#0b0b0f;font:500 14.5px/1 'JetBrains Mono',monospace;box-shadow:0 20px 46px -18px var(--ac);transition:transform .14s ease,filter .2s ease" style-hover="filter:brightness(1.07);color:#0b0b0f" style-active="transform:scale(.975)">
+<a href="#download" style="display:flex;align-items:center;gap:12px;height:52px;padding:0 clamp(20px,5vw,26px);border-radius:12px;background:var(--ac);color:#0b0b0f;font:500 clamp(14px,3.4vw,15.5px)/1 'JetBrains Mono',monospace;box-shadow:0 20px 46px -18px var(--ac);transition:transform .14s ease,filter .2s ease" style-hover="filter:brightness(1.07);color:#0b0b0f" style-active="transform:scale(.975)">
 <span style="font-size:17px;line-height:1"></span>Download for macOS
 </a>
-<div style="font:400 11.5px/1 'JetBrains Mono',monospace;color:#5f5c56">2.2 MB · free · no account · apple silicon</div>
+<div style="font:400 12.5px/1 'JetBrains Mono',monospace;color:#8b857b">2.5 MB · free · no account · apple silicon</div>
 </div>
 </div>
 
@@ -85,31 +101,31 @@ metal 3 · macOS 14+ · apple silicon
 <span style="font:400 11px/1 'JetBrains Mono',monospace;color:var(--tfaint)">⌘⇧P</span>
 </div>
 
-<div style="height:34px;display:flex;align-items:stretch;padding:0 8px;background:rgba(0,0,0,.3);border-bottom:.5px solid rgba(255,255,255,.06)">
+<div style="height:34px;display:flex;align-items:stretch;padding:0 8px;background:rgba(0,0,0,.3);border-bottom:.5px solid rgba(255,255,255,.06);overflow-x:auto;scrollbar-width:none">
 <div style="display:flex;align-items:center;gap:8px;padding:0 15px;margin-top:4px;border-radius:8px 8px 0 0;background:rgba(255,255,255,.075);border:.5px solid rgba(255,255,255,.09);border-bottom:0;font:500 12px/1 'JetBrains Mono',monospace;color:var(--tfg)"><span style="width:5px;height:5px;border-radius:50%;background:var(--tac);animation:mtBreathe 2.4s ease-in-out infinite"></span>zsh</div>
 <div style="display:flex;align-items:center;padding:0 15px;margin-top:4px;font:400 12px/1 'JetBrains Mono',monospace;color:var(--tfaint)">vite dev</div>
 <div style="display:flex;align-items:center;padding:0 15px;margin-top:4px;font:400 12px/1 'JetBrains Mono',monospace;color:var(--tfaint)">ssh edge-01</div>
 </div>
 
-<div style="height:398px;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;padding:20px 22px">
-<div id="feedRef" style="display:flex;flex-direction:column;gap:18px;font:400 12.5px/1.74 'JetBrains Mono',monospace;will-change:transform">
+<div style="height:var(--termh);overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;padding:clamp(12px,3vw,20px) clamp(12px,3.4vw,22px)">
+<div id="feedRef" style="display:flex;flex-direction:column;gap:18px;font:400 var(--tfs)/1.74 'JetBrains Mono',monospace;will-change:transform">
 
 <div style="display:flex;flex-direction:column">
-<div style="display:flex;align-items:center;gap:10px"><span style="color:var(--tac);font-weight:700">❯</span><span style="color:var(--tfg);font-weight:500">cargo build --release</span><span style="margin-left:auto;color:var(--tfaint);font-size:11.5px">1.24s</span><span style="width:6px;height:6px;border-radius:50%;background:var(--tok)"></span></div>
+<div style="display:flex;align-items:center;gap:10px"><span style="color:var(--tac);font-weight:700">❯</span><span style="color:var(--tfg);font-weight:500">cargo build --release</span><span style="margin-left:auto;color:var(--tfaint);font-size:var(--tfs2)">1.24s</span><span style="width:6px;height:6px;border-radius:50%;background:var(--tok)"></span></div>
 <div style="padding-left:22px;color:var(--tdim)">Compiling mt-gpu v0.1.0</div>
 <div style="padding-left:22px;color:var(--tdim)">Compiling mt-shell v0.1.0</div>
 <div style="padding-left:22px;color:var(--tdim)">Finished `release` profile [optimized] in 1.24s</div>
 </div>
 
 <div style="display:flex;flex-direction:column">
-<div style="display:flex;align-items:center;gap:10px"><span style="color:var(--tac);font-weight:700">❯</span><span style="color:var(--tfg);font-weight:500">git status --short</span><span style="margin-left:auto;color:var(--tfaint);font-size:11.5px">0.02s</span><span style="width:6px;height:6px;border-radius:50%;background:var(--tok)"></span></div>
+<div style="display:flex;align-items:center;gap:10px"><span style="color:var(--tac);font-weight:700">❯</span><span style="color:var(--tfg);font-weight:500">git status --short</span><span style="margin-left:auto;color:var(--tfaint);font-size:var(--tfs2)">0.02s</span><span style="width:6px;height:6px;border-radius:50%;background:var(--tok)"></span></div>
 <div style="padding-left:22px;color:var(--tdim)">&nbsp;M crates/mt-gpu/shaders/cell.metal</div>
 <div style="padding-left:22px;color:var(--tdim)">A&nbsp; crates/mt-atlas/src/atlas.rs</div>
 <div style="padding-left:22px;color:var(--tdim)">?? bench/scroll_200mb.log</div>
 </div>
 
 <div style="display:flex;flex-direction:column">
-<div style="display:flex;align-items:center;gap:10px"><span style="color:var(--tac);font-weight:700">❯</span><span style="color:var(--tfg);font-weight:500">du -sh bench/*.log | sort -h</span><span style="margin-left:auto;color:var(--tfaint);font-size:11.5px">0.08s</span><span style="width:6px;height:6px;border-radius:50%;background:var(--tok)"></span></div>
+<div style="display:flex;align-items:center;gap:10px"><span style="color:var(--tac);font-weight:700">❯</span><span style="color:var(--tfg);font-weight:500">du -sh bench/*.log | sort -h</span><span style="margin-left:auto;color:var(--tfaint);font-size:var(--tfs2)">0.08s</span><span style="width:6px;height:6px;border-radius:50%;background:var(--tok)"></span></div>
 <div style="padding-left:22px;color:var(--tdim)">4.0K&nbsp;&nbsp;bench/atlas_evict.log</div>
 <div style="padding-left:22px;color:var(--tdim)">1.8M&nbsp;&nbsp;bench/glyph_upload.log</div>
 <div style="padding-left:22px;color:var(--tdim)">203M&nbsp;&nbsp;bench/scroll_200mb.log</div>
@@ -118,84 +134,84 @@ metal 3 · macOS 14+ · apple silicon
 </div>
 </div>
 
-<div id="dockRef" style="position:relative;display:flex;align-items:center;gap:11px;padding:13px 22px;border-top:.5px solid rgba(255,255,255,.06);font:400 12.5px/1.74 'JetBrains Mono',monospace"><canvas id="fxRef" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:3"></canvas><span style="color:var(--tac);font-weight:700">❯</span><span style="display:flex;align-items:center"><span id="lineRef" style="display:inline-block;color:var(--tfg);font-weight:500;white-space:pre"></span><span id="caretRef" style="display:inline-block;width:8px;height:17px;margin-left:1px;background:var(--tac2);animation:cb 1.05s steps(1) infinite"></span></span></div>
+<div id="dockRef" style="position:relative;display:flex;align-items:center;gap:11px;padding:clamp(10px,2.6vw,13px) clamp(12px,3.4vw,22px);border-top:.5px solid rgba(255,255,255,.06);font:400 var(--tfs)/1.74 'JetBrains Mono',monospace"><canvas id="fxRef" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:3"></canvas><span style="color:var(--tac);font-weight:700">❯</span><span style="display:flex;align-items:center"><span id="lineRef" style="display:inline-block;color:var(--tfg);font-weight:500;white-space:pre"></span><span id="caretRef" style="display:inline-block;width:8px;height:17px;margin-left:1px;background:var(--tac2);animation:cb 1.05s steps(1) infinite"></span></span></div>
 
-<div style="height:34px;display:flex;align-items:center;gap:14px;padding:0 22px;background:var(--tbg0);border-top:.5px solid rgba(255,255,255,.06);font:400 11.5px/1 'JetBrains Mono',monospace;color:var(--tfaint)">
+<div style="height:34px;display:flex;align-items:center;gap:var(--statusgap);padding:0 clamp(12px,3.4vw,22px);background:var(--tbg0);border-top:.5px solid rgba(255,255,255,.06);font:400 var(--tfs2)/1 'JetBrains Mono',monospace;color:var(--tfaint);overflow:hidden;white-space:nowrap">
 <span style="color:var(--tdim)">~/src/metalterm</span><span style="color:var(--tline2)">│</span><span style="color:var(--tok)">main</span><span style="color:var(--tok)">+2</span><span style="color:var(--tfg)">~1</span><span style="color:#75726b">?3</span>
 </div>
 </div>
 </div>
 </div>
 
-<div style="max-width:1180px;margin:20px auto 0;padding:0 26px;display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;animation:mtUp .8s .3s cubic-bezier(.22,.9,.24,1) both">
-<span style="font:400 11px/1 'JetBrains Mono',monospace;letter-spacing:.14em;color:#4d4a45">THEME</span>
+<div style="max-width:1180px;margin:20px auto 0;padding:0 var(--pad);display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;animation:mtUp .8s .3s cubic-bezier(.22,.9,.24,1) both">
+<span style="font:400 11.5px/1 'JetBrains Mono',monospace;letter-spacing:.14em;color:#857f76">THEME</span>
 <div style="display:flex;gap:7px;flex-wrap:wrap;justify-content:center">
-<button data-theme="metalterm" data-chip="1" style="display:flex;align-items:center;gap:8px;height:30px;padding:0 12px;border-radius:9px;background:rgba(255,255,255,.035);border:.5px solid rgba(255,255,255,.08);color:#8f8a82;font:400 11.5px/1 'JetBrains Mono',monospace;cursor:pointer;outline:none;transition:color .25s ease,border-color .25s ease,background .25s ease,box-shadow .3s ease" style-hover="color:#e2d8c9;background:rgba(255,255,255,.06)"><span style="width:9px;height:9px;border-radius:3px;background:#ffb46e"></span>Metalterm</button>
-<button data-theme="palenight" data-chip="1" style="display:flex;align-items:center;gap:8px;height:30px;padding:0 12px;border-radius:9px;background:rgba(255,255,255,.035);border:.5px solid rgba(255,255,255,.08);color:#8f8a82;font:400 11.5px/1 'JetBrains Mono',monospace;cursor:pointer;outline:none;transition:color .25s ease,border-color .25s ease,background .25s ease,box-shadow .3s ease" style-hover="color:#e2d8c9;background:rgba(255,255,255,.06)"><span style="width:9px;height:9px;border-radius:3px;background:#c79ceb"></span>Palenight</button>
-<button data-theme="graphite" data-chip="1" style="display:flex;align-items:center;gap:8px;height:30px;padding:0 12px;border-radius:9px;background:rgba(255,255,255,.035);border:.5px solid rgba(255,255,255,.08);color:#8f8a82;font:400 11.5px/1 'JetBrains Mono',monospace;cursor:pointer;outline:none;transition:color .25s ease,border-color .25s ease,background .25s ease,box-shadow .3s ease" style-hover="color:#e2d8c9;background:rgba(255,255,255,.06)"><span style="width:9px;height:9px;border-radius:3px;background:#f6f3ec"></span>Graphite</button>
-<button data-theme="abyss" data-chip="1" style="display:flex;align-items:center;gap:8px;height:30px;padding:0 12px;border-radius:9px;background:rgba(255,255,255,.035);border:.5px solid rgba(255,255,255,.08);color:#8f8a82;font:400 11.5px/1 'JetBrains Mono',monospace;cursor:pointer;outline:none;transition:color .25s ease,border-color .25s ease,background .25s ease,box-shadow .3s ease" style-hover="color:#e2d8c9;background:rgba(255,255,255,.06)"><span style="width:9px;height:9px;border-radius:3px;background:#7ed7e0"></span>Abyss</button>
-<button data-theme="cappuccino" data-chip="1" style="display:flex;align-items:center;gap:8px;height:30px;padding:0 12px;border-radius:9px;background:rgba(255,255,255,.035);border:.5px solid rgba(255,255,255,.08);color:#8f8a82;font:400 11.5px/1 'JetBrains Mono',monospace;cursor:pointer;outline:none;transition:color .25s ease,border-color .25s ease,background .25s ease,box-shadow .3s ease" style-hover="color:#e2d8c9;background:rgba(255,255,255,.06)"><span style="width:9px;height:9px;border-radius:3px;background:#f0aecb"></span>Cappuccino</button>
+<button data-theme="metalterm" data-chip="1" style="display:flex;align-items:center;gap:8px;height:var(--chiph);padding:0 12px;border-radius:9px;background:rgba(255,255,255,.035);border:.5px solid rgba(255,255,255,.08);color:#8f8a82;font:400 12.5px/1 'JetBrains Mono',monospace;cursor:pointer;outline:none;transition:color .25s ease,border-color .25s ease,background .25s ease,box-shadow .3s ease" style-hover="color:#e2d8c9;background:rgba(255,255,255,.06)"><span style="width:9px;height:9px;border-radius:3px;background:#ffb46e"></span>Metalterm</button>
+<button data-theme="palenight" data-chip="1" style="display:flex;align-items:center;gap:8px;height:var(--chiph);padding:0 12px;border-radius:9px;background:rgba(255,255,255,.035);border:.5px solid rgba(255,255,255,.08);color:#8f8a82;font:400 12.5px/1 'JetBrains Mono',monospace;cursor:pointer;outline:none;transition:color .25s ease,border-color .25s ease,background .25s ease,box-shadow .3s ease" style-hover="color:#e2d8c9;background:rgba(255,255,255,.06)"><span style="width:9px;height:9px;border-radius:3px;background:#c79ceb"></span>Palenight</button>
+<button data-theme="graphite" data-chip="1" style="display:flex;align-items:center;gap:8px;height:var(--chiph);padding:0 12px;border-radius:9px;background:rgba(255,255,255,.035);border:.5px solid rgba(255,255,255,.08);color:#8f8a82;font:400 12.5px/1 'JetBrains Mono',monospace;cursor:pointer;outline:none;transition:color .25s ease,border-color .25s ease,background .25s ease,box-shadow .3s ease" style-hover="color:#e2d8c9;background:rgba(255,255,255,.06)"><span style="width:9px;height:9px;border-radius:3px;background:#f6f3ec"></span>Graphite</button>
+<button data-theme="abyss" data-chip="1" style="display:flex;align-items:center;gap:8px;height:var(--chiph);padding:0 12px;border-radius:9px;background:rgba(255,255,255,.035);border:.5px solid rgba(255,255,255,.08);color:#8f8a82;font:400 12.5px/1 'JetBrains Mono',monospace;cursor:pointer;outline:none;transition:color .25s ease,border-color .25s ease,background .25s ease,box-shadow .3s ease" style-hover="color:#e2d8c9;background:rgba(255,255,255,.06)"><span style="width:9px;height:9px;border-radius:3px;background:#7ed7e0"></span>Abyss</button>
+<button data-theme="cappuccino" data-chip="1" style="display:flex;align-items:center;gap:8px;height:var(--chiph);padding:0 12px;border-radius:9px;background:rgba(255,255,255,.035);border:.5px solid rgba(255,255,255,.08);color:#8f8a82;font:400 12.5px/1 'JetBrains Mono',monospace;cursor:pointer;outline:none;transition:color .25s ease,border-color .25s ease,background .25s ease,box-shadow .3s ease" style-hover="color:#e2d8c9;background:rgba(255,255,255,.06)"><span style="width:9px;height:9px;border-radius:3px;background:#f0aecb"></span>Cappuccino</button>
 </div>
-<span style="font:400 11px/1 'JetBrains Mono',monospace;color:#3d3b38">14 in the app</span>
-</div>
-
-<div style="max-width:1180px;margin:0 auto;padding:66px 26px 0">
-<div data-rev="1" style="display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,.07);border:.5px solid rgba(255,255,255,.07);border-radius:14px;overflow:hidden">
-<div style="display:flex;flex-direction:column;gap:8px;padding:22px 20px;background:#0b0b0f"><span style="font:700 30px/1 'JetBrains Mono',monospace;letter-spacing:-.03em;color:#f0e9dd">120<span style="font-size:15px;color:var(--ac)">fps</span></span><span style="font:400 11.5px/1.55 'JetBrains Mono',monospace;color:#75726b">steady, zero dropped frames, scrolling a full buffer</span></div>
-<div style="display:flex;flex-direction:column;gap:8px;padding:22px 20px;background:#0b0b0f"><span style="font:700 30px/1 'JetBrains Mono',monospace;letter-spacing:-.03em;color:#f0e9dd">0.22<span style="font-size:15px;color:var(--ac)">ms</span></span><span style="font:400 11.5px/1.55 'JetBrains Mono',monospace;color:#75726b">of GPU time per frame — 3% of the budget</span></div>
-<div style="display:flex;flex-direction:column;gap:8px;padding:22px 20px;background:#0b0b0f"><span style="font:700 30px/1 'JetBrains Mono',monospace;letter-spacing:-.03em;color:#f0e9dd">2.2<span style="font-size:15px;color:var(--ac)">MB</span></span><span style="font:400 11.5px/1.55 'JetBrains Mono',monospace;color:#75726b">one app, zero dependencies</span></div>
-<div style="display:flex;flex-direction:column;gap:8px;padding:22px 20px;background:#0b0b0f"><span style="font:700 30px/1 'JetBrains Mono',monospace;letter-spacing:-.03em;color:#f0e9dd">14<span style="font-size:15px;color:var(--ac)">themes</span></span><span style="font:400 11.5px/1.55 'JetBrains Mono',monospace;color:#75726b">plus your own, in one toml file</span></div>
-</div>
+<span style="font:400 12px/1 'JetBrains Mono',monospace;color:#8b857b">14 in the app</span>
 </div>
 
-<div id="features" style="max-width:1180px;margin:0 auto;padding:98px 26px 0">
+<div style="max-width:1180px;margin:0 auto;padding:clamp(40px,6vw,66px) var(--pad) 0">
+<div data-rev="1" style="display:grid;grid-template-columns:var(--g4);gap:1px;background:rgba(255,255,255,.07);border:.5px solid rgba(255,255,255,.07);border-radius:14px;overflow:hidden">
+<div style="display:flex;flex-direction:column;gap:8px;padding:clamp(16px,3vw,22px) clamp(15px,2.8vw,20px);background:#0b0b0f"><span style="font:700 clamp(23px,4.6vw,30px)/1 'JetBrains Mono',monospace;letter-spacing:-.03em;color:#f0e9dd">120<span style="font-size:15px;color:var(--ac)">fps</span></span><span style="font:400 12.5px/1.6 'JetBrains Mono',monospace;color:#7f7b73">steady, zero dropped frames, scrolling a full buffer</span></div>
+<div style="display:flex;flex-direction:column;gap:8px;padding:clamp(16px,3vw,22px) clamp(15px,2.8vw,20px);background:#0b0b0f"><span style="font:700 clamp(23px,4.6vw,30px)/1 'JetBrains Mono',monospace;letter-spacing:-.03em;color:#f0e9dd">0.22<span style="font-size:15px;color:var(--ac)">ms</span></span><span style="font:400 12.5px/1.6 'JetBrains Mono',monospace;color:#7f7b73">of GPU time per frame — 3% of the budget</span></div>
+<div style="display:flex;flex-direction:column;gap:8px;padding:clamp(16px,3vw,22px) clamp(15px,2.8vw,20px);background:#0b0b0f"><span style="font:700 clamp(23px,4.6vw,30px)/1 'JetBrains Mono',monospace;letter-spacing:-.03em;color:#f0e9dd">2.5<span style="font-size:15px;color:var(--ac)">MB</span></span><span style="font:400 12.5px/1.6 'JetBrains Mono',monospace;color:#7f7b73">one app, zero dependencies</span></div>
+<div style="display:flex;flex-direction:column;gap:8px;padding:clamp(16px,3vw,22px) clamp(15px,2.8vw,20px);background:#0b0b0f"><span style="font:700 clamp(23px,4.6vw,30px)/1 'JetBrains Mono',monospace;letter-spacing:-.03em;color:#f0e9dd">14<span style="font-size:15px;color:var(--ac)">themes</span></span><span style="font:400 12.5px/1.6 'JetBrains Mono',monospace;color:#7f7b73">plus your own, in one toml file</span></div>
+</div>
+</div>
+
+<div id="features" style="max-width:1180px;margin:0 auto;padding:var(--sec) var(--pad) 0">
 <div data-rev="1" style="display:flex;flex-direction:column;gap:13px;margin-bottom:32px">
-<span style="font:500 10.5px/1 'JetBrains Mono',monospace;letter-spacing:.18em;color:var(--ac)">FEATURES</span>
-<h2 style="margin:0;font:700 clamp(26px,3.4vw,38px)/1.15 'JetBrains Mono',monospace;letter-spacing:-.03em;color:#f0e9dd">Everything you'd otherwise install plugins for</h2>
-<p style="margin:0;max-width:600px;font:400 13.5px/1.75 'JetBrains Mono',monospace;color:#8f8a82;text-wrap:pretty">Nothing to configure on day one. All of it is on the moment you open the app.</p>
+<span style="font:500 11.5px/1 'JetBrains Mono',monospace;letter-spacing:.18em;color:var(--ac)">FEATURES</span>
+<h2 style="margin:0;font:700 clamp(21px,4.4vw,38px)/1.15 'JetBrains Mono',monospace;letter-spacing:-.03em;color:#f0e9dd">Everything you'd otherwise install plugins for</h2>
+<p style="margin:0;max-width:600px;font:400 clamp(13.5px,3vw,15px)/1.72 'JetBrains Mono',monospace;color:#8f8a82;text-wrap:pretty">Nothing to configure on day one. All of it is on the moment you open the app.</p>
 </div>
 
-<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px">
-<div data-rev="1" style="display:flex;flex-direction:column;gap:12px;padding:24px;border-radius:14px;background:#0c0c10;border:.5px solid rgba(255,255,255,.08);transition:border-color .35s ease,background .35s ease" style-hover="border-color:rgba(255,180,110,.3);background:#0f0e12">
+<div style="display:grid;grid-template-columns:var(--g3);gap:14px">
+<div data-rev="1" style="display:flex;flex-direction:column;gap:12px;padding:clamp(18px,3.4vw,24px);border-radius:14px;background:#0c0c10;border:.5px solid rgba(255,255,255,.08);transition:border-color .35s ease,background .35s ease" style-hover="border-color:rgba(255,180,110,.3);background:#0f0e12">
 <span style="font:700 15px/1 'JetBrains Mono',monospace;color:var(--ac)">❯❯</span>
-<span style="font:500 14px/1.3 'JetBrains Mono',monospace;color:#f0e9dd">Command blocks</span>
-<span style="font:400 12px/1.75 'JetBrains Mono',monospace;color:#8f8a82;text-wrap:pretty">Each command and its output is one tracked region, read from the shell's own OSC 133 markers — with how long it ran and a red gutter mark when it failed.</span>
+<span style="font:500 15px/1.35 'JetBrains Mono',monospace;color:#f0e9dd">Command blocks</span>
+<span style="font:400 13.5px/1.7 'JetBrains Mono',monospace;color:#8f8a82;text-wrap:pretty">Each command and its output is one tracked region, read from the shell's own OSC 133 markers — with how long it ran and a red gutter mark when it failed.</span>
 </div>
-<div data-rev="1" style="display:flex;flex-direction:column;gap:12px;padding:24px;border-radius:14px;background:#0c0c10;border:.5px solid rgba(255,255,255,.08);transition:border-color .35s ease,background .35s ease" style-hover="border-color:rgba(255,180,110,.3);background:#0f0e12">
+<div data-rev="1" style="display:flex;flex-direction:column;gap:12px;padding:clamp(18px,3.4vw,24px);border-radius:14px;background:#0c0c10;border:.5px solid rgba(255,255,255,.08);transition:border-color .35s ease,background .35s ease" style-hover="border-color:rgba(255,180,110,.3);background:#0f0e12">
 <span style="font:700 15px/1 'JetBrains Mono',monospace;color:var(--ac)">⌘⇧P</span>
-<span style="font:500 14px/1.3 'JetBrains Mono',monospace;color:#f0e9dd">Command palette</span>
-<span style="font:400 12px/1.75 'JetBrains Mono',monospace;color:#8f8a82;text-wrap:pretty">Every setting, theme, tab and recent command behind one fuzzy field. It opens in under a frame and remembers what you actually use.</span>
+<span style="font:500 15px/1.35 'JetBrains Mono',monospace;color:#f0e9dd">Command palette</span>
+<span style="font:400 13.5px/1.7 'JetBrains Mono',monospace;color:#8f8a82;text-wrap:pretty">Every setting, theme, tab and recent command behind one fuzzy field. It opens in under a frame and remembers what you actually use.</span>
 </div>
-<div data-rev="1" style="display:flex;flex-direction:column;gap:12px;padding:24px;border-radius:14px;background:#0c0c10;border:.5px solid rgba(255,255,255,.08);transition:border-color .35s ease,background .35s ease" style-hover="border-color:rgba(255,180,110,.3);background:#0f0e12">
+<div data-rev="1" style="display:flex;flex-direction:column;gap:12px;padding:clamp(18px,3.4vw,24px);border-radius:14px;background:#0c0c10;border:.5px solid rgba(255,255,255,.08);transition:border-color .35s ease,background .35s ease" style-hover="border-color:rgba(255,180,110,.3);background:#0f0e12">
 <span style="font:700 15px/1 'JetBrains Mono',monospace;color:var(--ac)">⌘F</span>
-<span style="font:500 14px/1.3 'JetBrains Mono',monospace;color:#f0e9dd">Find in scrollback</span>
-<span style="font:400 12px/1.75 'JetBrains Mono',monospace;color:#8f8a82;text-wrap:pretty">Literal or regex, across 10 000 lines, highlighted on the GPU as you type. No lag on the first keystroke, none on the last.</span>
+<span style="font:500 15px/1.35 'JetBrains Mono',monospace;color:#f0e9dd">Find in scrollback</span>
+<span style="font:400 13.5px/1.7 'JetBrains Mono',monospace;color:#8f8a82;text-wrap:pretty">Literal or regex, across 10 000 lines, highlighted on the GPU as you type. No lag on the first keystroke, none on the last.</span>
 </div>
-<div data-rev="1" style="display:flex;flex-direction:column;gap:12px;padding:24px;border-radius:14px;background:#0c0c10;border:.5px solid rgba(255,255,255,.08);transition:border-color .35s ease,background .35s ease" style-hover="border-color:rgba(255,180,110,.3);background:#0f0e12">
+<div data-rev="1" style="display:flex;flex-direction:column;gap:12px;padding:clamp(18px,3.4vw,24px);border-radius:14px;background:#0c0c10;border:.5px solid rgba(255,255,255,.08);transition:border-color .35s ease,background .35s ease" style-hover="border-color:rgba(255,180,110,.3);background:#0f0e12">
 <span style="font:700 15px/1 'JetBrains Mono',monospace;color:var(--ac)">▮</span>
-<span style="font:500 14px/1.3 'JetBrains Mono',monospace;color:#f0e9dd">A caret with physics</span>
-<span style="font:400 12px/1.75 'JetBrains Mono',monospace;color:#8f8a82;text-wrap:pretty">Sub-cell interpolation, three shapes and nine named motion styles — Snap, Spring, Arc, Smear, Phosphor — or switch it all off in one toggle.</span>
+<span style="font:500 15px/1.35 'JetBrains Mono',monospace;color:#f0e9dd">A caret with physics</span>
+<span style="font:400 13.5px/1.7 'JetBrains Mono',monospace;color:#8f8a82;text-wrap:pretty">Sub-cell interpolation, three shapes and nine named motion styles — Snap, Spring, Arc, Smear, Phosphor — or switch it all off in one toggle.</span>
 </div>
-<div data-rev="1" style="display:flex;flex-direction:column;gap:12px;padding:24px;border-radius:14px;background:#0c0c10;border:.5px solid rgba(255,255,255,.08);transition:border-color .35s ease,background .35s ease" style-hover="border-color:rgba(255,180,110,.3);background:#0f0e12">
+<div data-rev="1" style="display:flex;flex-direction:column;gap:12px;padding:clamp(18px,3.4vw,24px);border-radius:14px;background:#0c0c10;border:.5px solid rgba(255,255,255,.08);transition:border-color .35s ease,background .35s ease" style-hover="border-color:rgba(255,180,110,.3);background:#0f0e12">
 <span style="font:700 15px/1 'JetBrains Mono',monospace;color:var(--ac)">⌥⇥</span>
-<span style="font:500 14px/1.3 'JetBrains Mono',monospace;color:#f0e9dd">Tabs, splits, sessions</span>
-<span style="font:400 12px/1.75 'JetBrains Mono',monospace;color:#8f8a82;text-wrap:pretty">Every tab and split keeps its own directory, scrollback and shell. Windows reopen right where you left them on screen.</span>
+<span style="font:500 15px/1.35 'JetBrains Mono',monospace;color:#f0e9dd">Tabs, splits, sessions</span>
+<span style="font:400 13.5px/1.7 'JetBrains Mono',monospace;color:#8f8a82;text-wrap:pretty">Every tab and split keeps its own directory, scrollback and shell. Windows reopen right where you left them on screen.</span>
 </div>
-<div data-rev="1" style="display:flex;flex-direction:column;gap:12px;padding:24px;border-radius:14px;background:#0c0c10;border:.5px solid rgba(255,255,255,.08);transition:border-color .35s ease,background .35s ease" style-hover="border-color:rgba(255,180,110,.3);background:#0f0e12">
+<div data-rev="1" style="display:flex;flex-direction:column;gap:12px;padding:clamp(18px,3.4vw,24px);border-radius:14px;background:#0c0c10;border:.5px solid rgba(255,255,255,.08);transition:border-color .35s ease,background .35s ease" style-hover="border-color:rgba(255,180,110,.3);background:#0f0e12">
 <span style="font:700 15px/1 'JetBrains Mono',monospace;color:var(--ac)">⚙</span>
-<span style="font:500 14px/1.3 'JetBrains Mono',monospace;color:#f0e9dd">One plain-text config</span>
-<span style="font:400 12px/1.75 'JetBrains Mono',monospace;color:#8f8a82;text-wrap:pretty">Everything the Settings window writes lives in <span style="color:#c8bdae">~/.config/metalterm</span>. Commit it, share it, or never open it at all.</span>
+<span style="font:500 15px/1.35 'JetBrains Mono',monospace;color:#f0e9dd">One plain-text config</span>
+<span style="font:400 13.5px/1.7 'JetBrains Mono',monospace;color:#8f8a82;text-wrap:pretty">Everything the Settings window writes lives in <span style="color:#c8bdae">~/.config/metalterm</span>. Commit it, share it, or never open it at all.</span>
 </div>
 </div>
 </div>
 
-<div id="blocks" style="max-width:1180px;margin:0 auto;padding:98px 26px 0">
-<div style="display:grid;grid-template-columns:1fr 1.15fr;gap:44px;align-items:center">
+<div id="blocks" style="max-width:1180px;margin:0 auto;padding:var(--sec) var(--pad) 0">
+<div style="display:grid;grid-template-columns:var(--gtwo);gap:var(--gap2);align-items:center">
 <div data-rev="1" style="display:flex;flex-direction:column;gap:15px">
-<span style="font:500 10.5px/1 'JetBrains Mono',monospace;letter-spacing:.18em;color:var(--ac)">BLOCKS</span>
-<h2 style="margin:0;font:700 clamp(25px,3.2vw,36px)/1.16 'JetBrains Mono',monospace;letter-spacing:-.03em;color:#f0e9dd">Scrollback stops being a wall of text</h2>
-<p style="margin:0;font:400 13.5px/1.8 'JetBrains Mono',monospace;color:#8f8a82;text-wrap:pretty">Metalterm reads the shell's own OSC 133 markers, so it knows where a command starts, where its output ends and how long it took. A flat buffer gets structure the moment output starts landing.</p>
-<div style="display:flex;flex-direction:column;gap:11px;margin-top:4px;font:400 12.5px/1.7 'JetBrains Mono',monospace;color:#a09a91">
+<span style="font:500 11.5px/1 'JetBrains Mono',monospace;letter-spacing:.18em;color:var(--ac)">BLOCKS</span>
+<h2 style="margin:0;font:700 clamp(20px,4.2vw,36px)/1.16 'JetBrains Mono',monospace;letter-spacing:-.03em;color:#f0e9dd">Scrollback stops being a wall of text</h2>
+<p style="margin:0;font:400 clamp(13.5px,3vw,15px)/1.75 'JetBrains Mono',monospace;color:#8f8a82;text-wrap:pretty">Metalterm reads the shell's own OSC 133 markers, so it knows where a command starts, where its output ends and how long it took. A flat buffer gets structure the moment output starts landing.</p>
+<div style="display:flex;flex-direction:column;gap:11px;margin-top:4px;font:400 13.5px/1.7 'JetBrains Mono',monospace;color:#a09a91">
 <div style="display:flex;gap:11px"><span style="color:var(--ac)">→</span><span>Command, output and exit status tracked as one region</span></div>
 <div style="display:flex;gap:11px"><span style="color:var(--ac)">→</span><span>Every block carries the time it actually took</span></div>
 <div style="display:flex;gap:11px"><span style="color:var(--ac)">→</span><span>Failed blocks keep a red mark in the gutter until you clear them</span></div>
@@ -205,19 +221,19 @@ metal 3 · macOS 14+ · apple silicon
 
 <div data-rev="1" data-blocks="1" style="border-radius:14px;overflow:hidden;background:var(--tbg);border:.5px solid rgba(255,255,255,.1);box-shadow:0 40px 80px -40px rgba(0,0,0,.9)">
 <div style="height:34px;display:flex;align-items:center;padding:0 14px;background:rgba(255,255,255,.03);border-bottom:.5px solid rgba(255,255,255,.07);font:400 11.5px/1 'JetBrains Mono',monospace;color:var(--tfaint)">3 blocks · 1 failed</div>
-<div style="padding:16px 18px;display:flex;flex-direction:column;gap:16px;font:400 12.5px/1.74 'JetBrains Mono',monospace">
+<div style="padding:16px 18px;display:flex;flex-direction:column;gap:16px;font:400 var(--tfs)/1.74 'JetBrains Mono',monospace">
 <div style="display:flex;flex-direction:column;padding-left:11px;border-left:2px solid color-mix(in oklab,var(--tok) 62%,transparent)">
-<div style="display:flex;align-items:center;gap:9px"><span style="color:var(--tac);font-weight:700">❯</span><span style="color:var(--tfg);font-weight:500">pnpm test -- --run</span><span style="margin-left:auto;color:var(--tfaint);font-size:11.5px">6.10s</span></div>
+<div style="display:flex;align-items:center;gap:9px"><span style="color:var(--tac);font-weight:700">❯</span><span style="color:var(--tfg);font-weight:500">pnpm test -- --run</span><span style="margin-left:auto;color:var(--tfaint);font-size:var(--tfs2)">6.10s</span></div>
 <div style="color:var(--tdim)">Test Files  18 passed (18)</div>
 <div style="color:var(--tdim)">Tests  204 passed (204)</div>
 </div>
 <div style="display:flex;flex-direction:column;padding-left:11px;border-left:2px solid color-mix(in oklab,var(--tok) 62%,transparent)">
-<div style="display:flex;align-items:center;gap:9px"><span style="color:var(--tac);font-weight:700">❯</span><span style="color:var(--tfg);font-weight:500">docker compose up -d</span><span style="margin-left:auto;color:var(--tfaint);font-size:11.5px">18.4s</span></div>
+<div style="display:flex;align-items:center;gap:9px"><span style="color:var(--tac);font-weight:700">❯</span><span style="color:var(--tfg);font-weight:500">docker compose up -d</span><span style="margin-left:auto;color:var(--tfaint);font-size:var(--tfs2)">18.4s</span></div>
 <div style="color:var(--tdim)">Container edge-db  Started</div>
 <div style="color:var(--tdim)">Container edge-api  Started</div>
 </div>
 <div style="display:flex;flex-direction:column;padding-left:11px;border-left:2px solid color-mix(in oklab,var(--tbad) 72%,transparent)">
-<div style="display:flex;align-items:center;gap:9px"><span style="color:var(--tac);font-weight:700">❯</span><span style="color:var(--tfg);font-weight:500">./scripts/deploy.sh edge-01</span><span style="margin-left:auto;color:var(--tfaint);font-size:11.5px">2.03s</span></div>
+<div style="display:flex;align-items:center;gap:9px"><span style="color:var(--tac);font-weight:700">❯</span><span style="color:var(--tfg);font-weight:500">./scripts/deploy.sh edge-01</span><span style="margin-left:auto;color:var(--tfaint);font-size:var(--tfs2)">2.03s</span></div>
 <div style="color:var(--tdim)">ssh: connect to host edge-01 port 22: Operation timed out</div>
 <div style="color:var(--tdim)">exit 255</div>
 </div>
@@ -226,98 +242,99 @@ metal 3 · macOS 14+ · apple silicon
 </div>
 </div>
 
-<div id="themes" style="max-width:1180px;margin:0 auto;padding:98px 26px 0">
+<div id="themes" style="max-width:1180px;margin:0 auto;padding:var(--sec) var(--pad) 0">
 <div data-rev="1" style="display:flex;flex-direction:column;gap:13px;margin-bottom:30px">
-<span style="font:500 10.5px/1 'JetBrains Mono',monospace;letter-spacing:.18em;color:var(--ac)">THEMES</span>
-<h2 style="margin:0;font:700 clamp(26px,3.4vw,38px)/1.15 'JetBrains Mono',monospace;letter-spacing:-.03em;color:#f0e9dd">Eight colour roles. Fourteen ways to spend them.</h2>
-<p style="margin:0;max-width:640px;font:400 13.5px/1.75 'JetBrains Mono',monospace;color:#8f8a82;text-wrap:pretty">A theme is a background, a foreground, a dim, an accent and four states. Nothing else — which is why every theme looks deliberate instead of decorated.</p>
+<span style="font:500 11.5px/1 'JetBrains Mono',monospace;letter-spacing:.18em;color:var(--ac)">THEMES</span>
+<h2 style="margin:0;font:700 clamp(21px,4.4vw,38px)/1.15 'JetBrains Mono',monospace;letter-spacing:-.03em;color:#f0e9dd">Eight colour roles. Fourteen ways to spend them.</h2>
+<p style="margin:0;max-width:640px;font:400 clamp(13.5px,3vw,15px)/1.72 'JetBrains Mono',monospace;color:#8f8a82;text-wrap:pretty">A theme is a background, a foreground, a dim, an accent and four states. Nothing else — which is why every theme looks deliberate instead of decorated.</p>
 </div>
-<div data-rev="1" style="display:grid;grid-template-columns:repeat(5,1fr);gap:12px">
+<div data-rev="1" style="display:grid;grid-template-columns:var(--g5);gap:12px">
 <div data-theme="metalterm" role="button" tabindex="0" style="display:flex;flex-direction:column;gap:11px;padding:15px;border-radius:12px;background:#0b0b0f;border:.5px solid rgba(255,255,255,.07);cursor:pointer;outline:none;transition:border-color .3s ease,box-shadow .3s ease,background .3s ease,transform .16s ease" style-hover="background:#0f0e12;border-color:rgba(255,255,255,.2)" style-active="transform:scale(.986)" style-focus="border-color:rgba(255,255,255,.28)">
-<div style="display:flex;align-items:center;justify-content:space-between;gap:8px"><span style="font:500 13px/1 'JetBrains Mono',monospace;color:#e2d8c9">Metalterm</span><span data-active="1" style="display:none;font:400 11px/1 'JetBrains Mono',monospace;color:var(--ac)">active</span></div>
+<div style="display:flex;align-items:center;justify-content:space-between;gap:8px"><span style="font:500 13.5px/1 'JetBrains Mono',monospace;color:#e2d8c9">Metalterm</span><span data-active="1" style="display:none;font:400 11.5px/1 'JetBrains Mono',monospace;color:var(--ac)">active</span></div>
 <div style="display:flex;gap:5px"><span style="width:16px;height:16px;border-radius:5px;background:#0b0b0f;border:.5px solid rgba(255,255,255,.14)"></span><span style="width:16px;height:16px;border-radius:5px;background:#e2d8c9"></span><span style="width:16px;height:16px;border-radius:5px;background:#ffb46e"></span><span style="width:16px;height:16px;border-radius:5px;background:#8fa896"></span></div>
-<div style="font:400 11px/1.5 'JetBrains Mono',monospace;color:#5f5c56">warm graphite, amber prompt</div>
+<div style="font:400 12px/1.5 'JetBrains Mono',monospace;color:#8b857b">warm graphite, amber prompt</div>
 </div>
 <div data-theme="palenight" role="button" tabindex="0" style="display:flex;flex-direction:column;gap:11px;padding:15px;border-radius:12px;background:#0b0b0f;border:.5px solid rgba(255,255,255,.07);cursor:pointer;outline:none;transition:border-color .3s ease,box-shadow .3s ease,background .3s ease,transform .16s ease" style-hover="background:#0f0e12;border-color:rgba(255,255,255,.2)" style-active="transform:scale(.986)" style-focus="border-color:rgba(255,255,255,.28)">
-<div style="display:flex;align-items:center;justify-content:space-between;gap:8px"><span style="font:500 13px/1 'JetBrains Mono',monospace;color:#e2d8c9">Palenight</span><span data-active="1" style="display:none;font:400 11px/1 'JetBrains Mono',monospace;color:var(--ac)">active</span></div>
+<div style="display:flex;align-items:center;justify-content:space-between;gap:8px"><span style="font:500 13.5px/1 'JetBrains Mono',monospace;color:#e2d8c9">Palenight</span><span data-active="1" style="display:none;font:400 11.5px/1 'JetBrains Mono',monospace;color:var(--ac)">active</span></div>
 <div style="display:flex;gap:5px"><span style="width:16px;height:16px;border-radius:5px;background:#1b1e2e;border:.5px solid rgba(255,255,255,.14)"></span><span style="width:16px;height:16px;border-radius:5px;background:#d9dcf0"></span><span style="width:16px;height:16px;border-radius:5px;background:#c79ceb"></span><span style="width:16px;height:16px;border-radius:5px;background:#b8dd8a"></span></div>
-<div style="font:400 11px/1.5 'JetBrains Mono',monospace;color:#5f5c56">muted indigo, pastel</div>
+<div style="font:400 12px/1.5 'JetBrains Mono',monospace;color:#8b857b">muted indigo, pastel</div>
 </div>
 <div data-theme="graphite" role="button" tabindex="0" style="display:flex;flex-direction:column;gap:11px;padding:15px;border-radius:12px;background:#0b0b0f;border:.5px solid rgba(255,255,255,.07);cursor:pointer;outline:none;transition:border-color .3s ease,box-shadow .3s ease,background .3s ease,transform .16s ease" style-hover="background:#0f0e12;border-color:rgba(255,255,255,.2)" style-active="transform:scale(.986)" style-focus="border-color:rgba(255,255,255,.28)">
-<div style="display:flex;align-items:center;justify-content:space-between;gap:8px"><span style="font:500 13px/1 'JetBrains Mono',monospace;color:#e2d8c9">Graphite</span><span data-active="1" style="display:none;font:400 11px/1 'JetBrains Mono',monospace;color:var(--ac)">active</span></div>
+<div style="display:flex;align-items:center;justify-content:space-between;gap:8px"><span style="font:500 13.5px/1 'JetBrains Mono',monospace;color:#e2d8c9">Graphite</span><span data-active="1" style="display:none;font:400 11.5px/1 'JetBrains Mono',monospace;color:var(--ac)">active</span></div>
 <div style="display:flex;gap:5px"><span style="width:16px;height:16px;border-radius:5px;background:#111114;border:.5px solid rgba(255,255,255,.14)"></span><span style="width:16px;height:16px;border-radius:5px;background:#eae7e1"></span><span style="width:16px;height:16px;border-radius:5px;background:#f6f3ec"></span><span style="width:16px;height:16px;border-radius:5px;background:#98a89c"></span></div>
-<div style="font:400 11px/1.5 'JetBrains Mono',monospace;color:#5f5c56">neutral warm grey</div>
+<div style="font:400 12px/1.5 'JetBrains Mono',monospace;color:#8b857b">neutral warm grey</div>
 </div>
 <div data-theme="abyss" role="button" tabindex="0" style="display:flex;flex-direction:column;gap:11px;padding:15px;border-radius:12px;background:#0b0b0f;border:.5px solid rgba(255,255,255,.07);cursor:pointer;outline:none;transition:border-color .3s ease,box-shadow .3s ease,background .3s ease,transform .16s ease" style-hover="background:#0f0e12;border-color:rgba(255,255,255,.2)" style-active="transform:scale(.986)" style-focus="border-color:rgba(255,255,255,.28)">
-<div style="display:flex;align-items:center;justify-content:space-between;gap:8px"><span style="font:500 13px/1 'JetBrains Mono',monospace;color:#e2d8c9">Abyss</span><span data-active="1" style="display:none;font:400 11px/1 'JetBrains Mono',monospace;color:var(--ac)">active</span></div>
+<div style="display:flex;align-items:center;justify-content:space-between;gap:8px"><span style="font:500 13.5px/1 'JetBrains Mono',monospace;color:#e2d8c9">Abyss</span><span data-active="1" style="display:none;font:400 11.5px/1 'JetBrains Mono',monospace;color:var(--ac)">active</span></div>
 <div style="display:flex;gap:5px"><span style="width:16px;height:16px;border-radius:5px;background:#0a141d;border:.5px solid rgba(255,255,255,.14)"></span><span style="width:16px;height:16px;border-radius:5px;background:#d8e7f2"></span><span style="width:16px;height:16px;border-radius:5px;background:#7ed7e0"></span><span style="width:16px;height:16px;border-radius:5px;background:#6fc9a5"></span></div>
-<div style="font:400 11px/1.5 'JetBrains Mono',monospace;color:#5f5c56">cool, cyan on ink</div>
+<div style="font:400 12px/1.5 'JetBrains Mono',monospace;color:#8b857b">cool, cyan on ink</div>
 </div>
 <div data-theme="cappuccino" role="button" tabindex="0" style="display:flex;flex-direction:column;gap:11px;padding:15px;border-radius:12px;background:#0b0b0f;border:.5px solid rgba(255,255,255,.07);cursor:pointer;outline:none;transition:border-color .3s ease,box-shadow .3s ease,background .3s ease,transform .16s ease" style-hover="background:#0f0e12;border-color:rgba(255,255,255,.2)" style-active="transform:scale(.986)" style-focus="border-color:rgba(255,255,255,.28)">
-<div style="display:flex;align-items:center;justify-content:space-between;gap:8px"><span style="font:500 13px/1 'JetBrains Mono',monospace;color:#e2d8c9">Cappuccino</span><span data-active="1" style="display:none;font:400 11px/1 'JetBrains Mono',monospace;color:var(--ac)">active</span></div>
+<div style="display:flex;align-items:center;justify-content:space-between;gap:8px"><span style="font:500 13.5px/1 'JetBrains Mono',monospace;color:#e2d8c9">Cappuccino</span><span data-active="1" style="display:none;font:400 11.5px/1 'JetBrains Mono',monospace;color:var(--ac)">active</span></div>
 <div style="display:flex;gap:5px"><span style="width:16px;height:16px;border-radius:5px;background:#1e1b29;border:.5px solid rgba(255,255,255,.14)"></span><span style="width:16px;height:16px;border-radius:5px;background:#e4dff0"></span><span style="width:16px;height:16px;border-radius:5px;background:#f0aecb"></span><span style="width:16px;height:16px;border-radius:5px;background:#9fdcb4"></span></div>
-<div style="font:400 11px/1.5 'JetBrains Mono',monospace;color:#5f5c56">mocha base, soft pastels</div>
+<div style="font:400 12px/1.5 'JetBrains Mono',monospace;color:#8b857b">mocha base, soft pastels</div>
 </div>
 </div>
-<div style="margin-top:16px;display:flex;align-items:center;gap:10px;font:400 11px/1.6 'JetBrains Mono',monospace;color:#4d4a45"><span style="color:var(--ac)">→</span><span>Click a theme — the terminal above and the block preview follow it. In the app: <span style="color:#8f8a82">⌘⇧P → Theme · …</span>, the inspector list, or <span style="color:#8f8a82">theme abyss</span>.</span></div>
+<div style="margin-top:16px;display:flex;align-items:center;gap:10px;font:400 12px/1.65 'JetBrains Mono',monospace;color:#857f76"><span style="color:var(--ac)">→</span><span>Click a theme — the terminal above and the block preview follow it. In the app: <span style="color:#8f8a82">⌘⇧P → Theme · …</span>, the inspector list, or <span style="color:#8f8a82">theme abyss</span>.</span></div>
 </div>
 
-<div id="speed" style="max-width:1180px;margin:0 auto;padding:98px 26px 0">
-<div data-rev="1" style="position:relative;overflow:hidden;padding:46px;border-radius:18px;background:linear-gradient(160deg,#100e11,#0a0a0d);border:.5px solid rgba(255,255,255,.09)">
+<div id="speed" style="max-width:1180px;margin:0 auto;padding:var(--sec) var(--pad) 0">
+<div data-rev="1" style="position:relative;overflow:hidden;padding:var(--cardp);border-radius:18px;background:linear-gradient(160deg,#100e11,#0a0a0d);border:.5px solid rgba(255,255,255,.09)">
 <div style="position:absolute;top:-140px;right:-80px;width:460px;height:460px;border-radius:50%;background:radial-gradient(closest-side,rgba(255,180,110,.13),transparent);pointer-events:none"></div>
-<div style="position:relative;display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:center">
+<div style="position:relative;display:grid;grid-template-columns:var(--gspeed);gap:var(--gap2);align-items:center">
 <div style="display:flex;flex-direction:column;gap:15px">
-<span style="font:500 10.5px/1 'JetBrains Mono',monospace;letter-spacing:.18em;color:var(--ac)">SPEED</span>
-<h2 style="margin:0;font:700 clamp(25px,3.2vw,36px)/1.16 'JetBrains Mono',monospace;letter-spacing:-.03em;color:#f0e9dd">Two passes. 0.22 ms. Every frame.</h2>
-<p style="margin:0;font:400 13.5px/1.8 'JetBrains Mono',monospace;color:#8f8a82;text-wrap:pretty">Text is one Metal pass, ambient light is the other. The glyph atlas stays resident on the GPU, so a 200 MB log costs the same per frame as an empty prompt. When nothing changes, the renderer sends no frames at all — not fewer, none — and gives the battery back.</p>
+<span style="font:500 11.5px/1 'JetBrains Mono',monospace;letter-spacing:.18em;color:var(--ac)">SPEED</span>
+<h2 style="margin:0;font:700 clamp(20px,4.2vw,36px)/1.16 'JetBrains Mono',monospace;letter-spacing:-.03em;color:#f0e9dd">Two passes. 0.22 ms. Every frame.</h2>
+<p style="margin:0;font:400 clamp(13.5px,3vw,15px)/1.75 'JetBrains Mono',monospace;color:#8f8a82;text-wrap:pretty">Text is one Metal pass, ambient light is the other. The glyph atlas stays resident on the GPU, so a 200 MB log costs the same per frame as an empty prompt. When nothing changes, the renderer sends no frames at all — not fewer, none — and gives the battery back.</p>
 </div>
-<div style="display:flex;flex-direction:column;gap:13px;font:400 12px/1 'JetBrains Mono',monospace">
+<div style="display:flex;flex-direction:column;gap:13px;font:400 12.5px/1 'JetBrains Mono',monospace">
 <div style="display:flex;flex-direction:column;gap:7px"><div style="display:flex;justify-content:space-between"><span style="color:#c8bdae">GPU time</span><span style="color:#8fa896">0.22 ms</span></div><div style="height:7px;border-radius:4px;background:rgba(255,255,255,.06)"><div style="width:3%;height:100%;border-radius:4px;background:var(--ac)"></div></div></div>
 <div style="display:flex;flex-direction:column;gap:7px"><div style="display:flex;justify-content:space-between"><span style="color:#c8bdae">CPU time</span><span style="color:#8fa896">0.13 ms</span></div><div style="height:7px;border-radius:4px;background:rgba(255,255,255,.06)"><div style="width:2%;height:100%;border-radius:4px;background:var(--ac)"></div></div></div>
-<div style="display:flex;flex-direction:column;gap:7px"><div style="display:flex;justify-content:space-between"><span style="color:#8f8a82">frame budget at 120 Hz</span><span style="color:#75726b">8.33 ms</span></div><div style="height:7px;border-radius:4px;background:rgba(255,255,255,.06)"><div style="width:100%;height:100%;border-radius:4px;background:rgba(255,255,255,.14)"></div></div></div>
-<div style="margin-top:4px;font:400 10.5px/1.6 'JetBrains Mono',monospace;color:#4d4a45;text-wrap:pretty">two 30 s runs, M3 Max · 118×34 · continuous scroll of a filled scrollback · 119.7 Hz steady, 0 dropped frames</div>
+<div style="display:flex;flex-direction:column;gap:7px"><div style="display:flex;justify-content:space-between"><span style="color:#8f8a82">frame budget at 120 Hz</span><span style="color:#7f7b73">8.33 ms</span></div><div style="height:7px;border-radius:4px;background:rgba(255,255,255,.06)"><div style="width:100%;height:100%;border-radius:4px;background:rgba(255,255,255,.14)"></div></div></div>
+<div style="margin-top:4px;font:400 11.5px/1.65 'JetBrains Mono',monospace;color:#857f76;text-wrap:pretty">two 30 s runs, M3 Max · 118×34 · continuous scroll of a filled scrollback · 119.7 Hz steady, 0 dropped frames</div>
 </div>
 </div>
 </div>
 </div>
 
-<div id="download" style="max-width:1180px;margin:0 auto;padding:98px 26px 0">
-<div data-rev="1" style="display:flex;flex-direction:column;align-items:center;gap:24px;padding:56px 40px;border-radius:18px;background:radial-gradient(120% 140% at 50% -10%,rgba(255,180,110,.12),transparent 62%),#0b0b0f;border:.5px solid rgba(255,255,255,.1);text-align:center">
+<div id="download" style="max-width:1180px;margin:0 auto;padding:var(--sec) var(--pad) 0">
+<div data-rev="1" style="display:flex;flex-direction:column;align-items:center;gap:24px;padding:var(--dlp);border-radius:18px;background:radial-gradient(120% 140% at 50% -10%,rgba(255,180,110,.12),transparent 62%),#0b0b0f;border:.5px solid rgba(255,255,255,.1);text-align:center">
 <span style="width:52px;height:52px;border-radius:14px;background:linear-gradient(150deg,#1e1b20,#0d0d10);border:.5px solid rgba(255,255,255,.14);display:flex;align-items:center;justify-content:center;font:700 22px/1 'JetBrains Mono',monospace;color:var(--ac);box-shadow:0 20px 40px -20px rgba(255,180,110,.5)">❯</span>
-<h2 style="margin:0;max-width:620px;font:700 clamp(26px,3.6vw,40px)/1.14 'JetBrains Mono',monospace;letter-spacing:-.035em;color:#f5efe4;text-wrap:balance">Open it once and you won't go back</h2>
-<p style="margin:0;max-width:520px;font:400 13.5px/1.75 'JetBrains Mono',monospace;color:#8f8a82;text-wrap:pretty">Free while in beta. Your shell and your dotfiles stay exactly as they are — Metalterm never edits a line of them.</p>
-<a href="https://github.com/pioner92/metalterm-site/releases/download/downloads/Metalterm-0.1.0.dmg" id="downloadCta" download style="display:flex;align-items:center;gap:12px;height:54px;padding:0 30px;border-radius:12px;background:var(--ac);color:#0b0b0f;font:500 15px/1 'JetBrains Mono',monospace;box-shadow:0 22px 50px -18px var(--ac);transition:transform .14s ease,filter .2s ease" style-hover="filter:brightness(1.07);color:#0b0b0f" style-active="transform:scale(.975)"><span style="font-size:18px;line-height:1"></span><span id="dlLabel">Download Metalterm</span></a>
-<div style="display:flex;flex-wrap:wrap;justify-content:center;gap:22px;font:400 11.5px/1 'JetBrains Mono',monospace;color:#5f5c56">
+<h2 style="margin:0;max-width:620px;font:700 clamp(21px,4.6vw,40px)/1.14 'JetBrains Mono',monospace;letter-spacing:-.035em;color:#f5efe4;text-wrap:balance">Open it once and you won't go back</h2>
+<p style="margin:0;max-width:520px;font:400 clamp(13.5px,3vw,15px)/1.72 'JetBrains Mono',monospace;color:#8f8a82;text-wrap:pretty">Free while in beta. Your shell and your dotfiles stay exactly as they are — Metalterm never edits a line of them.</p>
+<a href="https://github.com/pioner92/metalterm-site/releases/download/downloads/Metalterm-0.1.0.dmg" id="downloadCta" download style="display:flex;align-items:center;gap:12px;height:54px;padding:0 clamp(22px,5.4vw,30px);border-radius:12px;background:var(--ac);color:#0b0b0f;font:500 clamp(14px,3.6vw,16px)/1 'JetBrains Mono',monospace;box-shadow:0 22px 50px -18px var(--ac);transition:transform .14s ease,filter .2s ease" style-hover="filter:brightness(1.07);color:#0b0b0f" style-active="transform:scale(.975)"><span style="font-size:18px;line-height:1"></span><span id="dlLabel">Download Metalterm</span></a>
+<div style="display:flex;flex-wrap:wrap;justify-content:center;gap:clamp(10px,3vw,22px);font:400 12.5px/1.6 'JetBrains Mono',monospace;color:#8b857b;text-align:center">
 <span id="dlFacts">Metalterm-0.1.0.dmg · 2.5 MB</span><span>macOS 14 Sonoma or later</span><span>apple silicon</span><span>notarised by apple</span>
 </div>
 </div>
 </div>
 
-<div id="faq" style="max-width:900px;margin:0 auto;padding:98px 26px 0">
+<div id="faq" style="max-width:900px;margin:0 auto;padding:var(--sec) var(--pad) 0">
 <div data-rev="1" style="display:flex;flex-direction:column;gap:13px;margin-bottom:26px">
-<span style="font:500 10.5px/1 'JetBrains Mono',monospace;letter-spacing:.18em;color:var(--ac)">FAQ</span>
-<h2 style="margin:0;font:700 clamp(24px,3vw,34px)/1.16 'JetBrains Mono',monospace;letter-spacing:-.03em;color:#f0e9dd">Short answers</h2>
+<span style="font:500 11.5px/1 'JetBrains Mono',monospace;letter-spacing:.18em;color:var(--ac)">FAQ</span>
+<h2 style="margin:0;font:700 clamp(20px,4vw,34px)/1.16 'JetBrains Mono',monospace;letter-spacing:-.03em;color:#f0e9dd">Short answers</h2>
 </div>
 <div data-rev="1" style="display:flex;flex-direction:column;gap:1px;background:rgba(255,255,255,.07);border:.5px solid rgba(255,255,255,.07);border-radius:14px;overflow:hidden">
-<div style="display:grid;grid-template-columns:250px 1fr;gap:22px;padding:20px 22px;background:#0b0b0f"><span style="font:500 12.5px/1.6 'JetBrains Mono',monospace;color:#e2d8c9">Do I have to change my shell?</span><span style="font:400 12.5px/1.75 'JetBrains Mono',monospace;color:#8f8a82;text-wrap:pretty">No. zsh, bash and fish all work as they are, and blocks need nothing added to your rc files — the integration loads by a route each shell already offers.</span></div>
-<div style="display:grid;grid-template-columns:250px 1fr;gap:22px;padding:20px 22px;background:#0b0b0f"><span style="font:500 12.5px/1.6 'JetBrains Mono',monospace;color:#e2d8c9">Is it really free?</span><span style="font:400 12.5px/1.75 'JetBrains Mono',monospace;color:#8f8a82;text-wrap:pretty">Free through the beta, with no account and no telemetry. If a paid tier ever appears, everything on this page stays in the free one.</span></div>
-<div style="display:grid;grid-template-columns:250px 1fr;gap:22px;padding:20px 22px;background:#0b0b0f"><span style="font:500 12.5px/1.6 'JetBrains Mono',monospace;color:#e2d8c9">Windows or Linux?</span><span style="font:400 12.5px/1.75 'JetBrains Mono',monospace;color:#8f8a82;text-wrap:pretty">Not yet. The renderer is Metal-only today; a Vulkan backend is the next platform step after 1.0.</span></div>
-<div style="display:grid;grid-template-columns:250px 1fr;gap:22px;padding:20px 22px;background:#0b0b0f"><span style="font:500 12.5px/1.6 'JetBrains Mono',monospace;color:#e2d8c9">Can I turn the motion off?</span><span style="font:400 12.5px/1.75 'JetBrains Mono',monospace;color:#8f8a82;text-wrap:pretty">One toggle in Settings → Motion, and every animation falls back to a 90 ms fade. It also follows the system Reduce Motion setting.</span></div>
-<div style="display:grid;grid-template-columns:250px 1fr;gap:22px;padding:20px 22px;background:#0b0b0f"><span style="font:500 12.5px/1.6 'JetBrains Mono',monospace;color:#e2d8c9">What about my old terminal's settings?</span><span style="font:400 12.5px/1.75 'JetBrains Mono',monospace;color:#8f8a82;text-wrap:pretty">Nothing is imported — everyone starts on Metalterm's defaults. What you change lands in one readable toml you can edit by hand.</span></div>
-<div style="display:grid;grid-template-columns:250px 1fr;gap:22px;padding:20px 22px;background:#0b0b0f"><span style="font:500 12.5px/1.6 'JetBrains Mono',monospace;color:#e2d8c9">Something broken?</span><span style="font:400 12.5px/1.75 'JetBrains Mono',monospace;color:#8f8a82;text-wrap:pretty">Write to <a href="mailto:support@metalterm.dev" style="font-weight:500">support@metalterm.dev</a> — a real person reads it, usually the same day.</span></div>
+<div style="display:grid;grid-template-columns:var(--gfaq);gap:var(--faqgap);padding:clamp(15px,3vw,20px) clamp(16px,3.4vw,22px);background:#0b0b0f"><span style="font:500 13.5px/1.6 'JetBrains Mono',monospace;color:#e2d8c9">Do I have to change my shell?</span><span style="font:400 clamp(13px,3vw,13.5px)/1.75 'JetBrains Mono',monospace;color:#8f8a82;text-wrap:pretty">No. zsh, bash and fish all work as they are, and blocks need nothing added to your rc files — the integration loads by a route each shell already offers.</span></div>
+<div style="display:grid;grid-template-columns:var(--gfaq);gap:var(--faqgap);padding:clamp(15px,3vw,20px) clamp(16px,3.4vw,22px);background:#0b0b0f"><span style="font:500 13.5px/1.6 'JetBrains Mono',monospace;color:#e2d8c9">Is it really free?</span><span style="font:400 clamp(13px,3vw,13.5px)/1.75 'JetBrains Mono',monospace;color:#8f8a82;text-wrap:pretty">Free through the beta, with no account and no telemetry. If a paid tier ever appears, everything on this page stays in the free one.</span></div>
+<div style="display:grid;grid-template-columns:var(--gfaq);gap:var(--faqgap);padding:clamp(15px,3vw,20px) clamp(16px,3.4vw,22px);background:#0b0b0f"><span style="font:500 13.5px/1.6 'JetBrains Mono',monospace;color:#e2d8c9">Windows or Linux?</span><span style="font:400 clamp(13px,3vw,13.5px)/1.75 'JetBrains Mono',monospace;color:#8f8a82;text-wrap:pretty">Not yet. The renderer is Metal-only today; a Vulkan backend is the next platform step after 1.0.</span></div>
+<div style="display:grid;grid-template-columns:var(--gfaq);gap:var(--faqgap);padding:clamp(15px,3vw,20px) clamp(16px,3.4vw,22px);background:#0b0b0f"><span style="font:500 13.5px/1.6 'JetBrains Mono',monospace;color:#e2d8c9">Can I turn the motion off?</span><span style="font:400 clamp(13px,3vw,13.5px)/1.75 'JetBrains Mono',monospace;color:#8f8a82;text-wrap:pretty">One toggle in Settings → Motion, and every animation falls back to a 90 ms fade. It also follows the system Reduce Motion setting.</span></div>
+<div style="display:grid;grid-template-columns:var(--gfaq);gap:var(--faqgap);padding:clamp(15px,3vw,20px) clamp(16px,3.4vw,22px);background:#0b0b0f"><span style="font:500 13.5px/1.6 'JetBrains Mono',monospace;color:#e2d8c9">What about my old terminal's settings?</span><span style="font:400 clamp(13px,3vw,13.5px)/1.75 'JetBrains Mono',monospace;color:#8f8a82;text-wrap:pretty">Nothing is imported — everyone starts on Metalterm's defaults. What you change lands in one readable toml you can edit by hand.</span></div>
+<div style="display:grid;grid-template-columns:var(--gfaq);gap:var(--faqgap);padding:clamp(15px,3vw,20px) clamp(16px,3.4vw,22px);background:#0b0b0f"><span style="font:500 13.5px/1.6 'JetBrains Mono',monospace;color:#e2d8c9">Something broken?</span><span style="font:400 clamp(13px,3vw,13.5px)/1.75 'JetBrains Mono',monospace;color:#8f8a82;text-wrap:pretty">Write to <a href="mailto:support@metalterm.dev" style="color:var(--ac)" style-hover="color:var(--ac2)">support@metalterm.dev</a> — a real person reads it, usually the same day. Reproducible bugs are better off on <a href="https://github.com/pioner92/metalterm-site/issues" target="_blank" rel="noopener" style="color:var(--ac)" style-hover="color:var(--ac2)">issues</a>.</span></div>
 </div>
 </div>
 
-<div style="max-width:1180px;margin:0 auto;padding:80px 26px 46px">
-<div style="display:flex;align-items:center;gap:20px;padding-top:26px;border-top:.5px solid rgba(255,255,255,.07);flex-wrap:wrap">
-<span style="display:flex;align-items:center;gap:9px;font:700 13px/1 'JetBrains Mono',monospace;color:#c8bdae"><span style="color:var(--ac)">❯</span>Metalterm</span>
-<span style="font:400 11.5px/1 'JetBrains Mono',monospace;color:#4d4a45">beta · built in Metal 3</span>
+<div style="max-width:1180px;margin:0 auto;padding:clamp(48px,7vw,80px) var(--pad) 46px">
+<div style="display:flex;align-items:center;gap:clamp(12px,3vw,20px);padding-top:26px;border-top:.5px solid rgba(255,255,255,.07);flex-wrap:wrap">
+<span style="display:flex;align-items:center;gap:9px;font:700 13.5px/1 'JetBrains Mono',monospace;color:#c8bdae"><span style="color:var(--ac)">❯</span>Metalterm</span>
+<span style="font:400 12px/1 'JetBrains Mono',monospace;color:#857f76">beta · built in Metal 3</span>
 <span style="flex:1"></span>
-<div style="display:flex;gap:20px;font:400 11.5px/1 'JetBrains Mono',monospace">
-<a href="#features" style="color:#75726b" style-hover="color:#e2d8c9">features</a>
-<a href="#faq" style="color:#75726b" style-hover="color:#e2d8c9">faq</a>
-<a href="#download" style="color:#75726b" style-hover="color:#e2d8c9">download</a>
-<a href="mailto:support@metalterm.dev" style="color:#75726b" style-hover="color:#e2d8c9">support@metalterm.dev</a>
+<div style="display:flex;flex-wrap:wrap;gap:clamp(12px,3vw,20px);font:400 12.5px/1 'JetBrains Mono',monospace">
+<a href="#features" style="color:#7f7b73" style-hover="color:#e2d8c9">features</a>
+<a href="#faq" style="color:#7f7b73" style-hover="color:#e2d8c9">faq</a>
+<a href="#download" style="color:#7f7b73" style-hover="color:#e2d8c9">download</a>
+<a href="https://github.com/pioner92/metalterm-site/issues" target="_blank" rel="noopener" style="color:#7f7b73" style-hover="color:#e2d8c9">report a bug</a>
+<a href="mailto:support@metalterm.dev" style="color:#7f7b73" style-hover="color:var(--ac)">support@metalterm.dev</a>
 </div>
 </div>
 </div>
@@ -351,6 +368,9 @@ metal 3 · macOS 14+ · apple silicon
   const lineEl = document.getElementById("lineRef");
   const caretEl = document.getElementById("caretRef");
   const dlLabelEl = document.getElementById("dlLabel");
+  const menuBtnEl = document.getElementById("menuBtn");
+  const menuGlyphEl = document.getElementById("menuGlyph");
+  const mobileMenuEl = document.getElementById("mobileMenu");
 
   let theme = "metalterm";
   let step = 0;
@@ -621,6 +641,16 @@ metal 3 · macOS 14+ · apple silicon
       }
     });
   }
+
+  let menuOpen = false;
+  function setMenu(open) {
+    menuOpen = open;
+    if (mobileMenuEl) mobileMenuEl.style.display = open ? "flex" : "none";
+    if (menuGlyphEl) menuGlyphEl.textContent = open ? "✕" : "≡";
+  }
+  if (menuBtnEl) menuBtnEl.addEventListener("click", () => setMenu(!menuOpen));
+  if (mobileMenuEl) mobileMenuEl.addEventListener("click", (e) => { if (e.target.tagName === "A") setMenu(false); });
+  window.addEventListener("resize", () => { if (window.innerWidth > 900 && menuOpen) setMenu(false); });
 
   document.querySelectorAll("[data-theme]").forEach((el) => {
     el.addEventListener("click", pickTheme);

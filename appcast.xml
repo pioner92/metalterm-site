@@ -3,6 +3,16 @@
     <channel>
         <title>Metalterm</title>
         <item>
+            <title>0.1.2</title>
+            <pubDate>Wed, 19 Aug 2026 22:50:18 +0200</pubDate>
+            <link>https://metalterm.dev</link>
+            <sparkle:version>558</sparkle:version>
+            <sparkle:shortVersionString>0.1.2</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
+            <enclosure url="https://github.com/pioner92/metalterm-site/releases/download/downloads/Metalterm-0.1.2.dmg" length="3330789" type="application/octet-stream" sparkle:edSignature="wGWvFqxXtNGJNLD1zXM2gvJE4vFkXVMJNDxS2rrqxEYX89lIL5SdJaXybuf07tvcyu4uAQAmBxLqH4EVPz0lDw=="/>
+        </item>
+        <item>
             <title>0.1.1</title>
             <pubDate>Wed, 19 Aug 2026 15:10:11 +0200</pubDate>
             <link>https://metalterm.dev</link>

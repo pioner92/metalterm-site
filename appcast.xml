@@ -1,0 +1,16 @@
+<?xml version="1.0" standalone="yes"?>
+<rss xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" version="2.0">
+    <channel>
+        <title>Metalterm</title>
+        <item>
+            <title>0.1.1</title>
+            <pubDate>Wed, 19 Aug 2026 15:10:11 +0200</pubDate>
+            <link>https://metalterm.dev</link>
+            <sparkle:version>545</sparkle:version>
+            <sparkle:shortVersionString>0.1.1</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
+            <enclosure url="https://github.com/pioner92/metalterm-site/releases/download/downloads/Metalterm-0.1.1.dmg" length="3350196" type="application/octet-stream" sparkle:edSignature="AqNSJYAa1uCM0CVUc2cQBvgpFiHjaSKZV2RHeYLIIU1GR80sZlP+BiwyQcZHdntCEGvqsTYyiDz1HcWM7gZ1AA=="/>
+        </item>
+    </channel>
+</rss>

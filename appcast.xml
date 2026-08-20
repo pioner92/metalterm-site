@@ -3,6 +3,36 @@
     <channel>
         <title>Metalterm</title>
         <item>
+            <title>0.1.3</title>
+            <pubDate>Thu, 20 Aug 2026 15:03:25 +0200</pubDate>
+            <link>https://metalterm.dev</link>
+            <sparkle:version>584</sparkle:version>
+            <sparkle:shortVersionString>0.1.3</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <description sparkle:format="markdown"><![CDATA[## What's new
+
+- Added a Reset all button that restores every setting to its default value.
+- Added support for dragging files from Finder or pasting files and images into the prompt as safely escaped paths.
+
+## Changed
+
+- Metalterm releases now run natively on both Apple silicon and Intel Macs from the same download.
+- Simplified the selected Appearance theme card to use its accent border without an additional “active” label.
+- Improved compatibility with terminal applications by advertising more supported capabilities while preserving the legacy terminal-name alias.
+
+## Fixed
+
+- Option-key characters and dead-key composition now follow non-US macOS keyboard layouts, with independent automatic, macOS, and Esc+ modes for each Option key.
+- Inline terminal apps that take over typing — Claude, Codex, REPLs, and similar — now reclaim the hidden input dock's space, with no fixed app list: the terminal detects them by behavior.
+- GNU `ls` now accepts Metalterm's generated color palette without errors or losing colored output.
+- Made the Appearance settings open and scroll smoothly by caching material previews outside the main drawing path.
+- Pasted text now appears in the pinned command line immediately.
+- Background terminal content continues updating correctly.
+- Command status colors remain correct when Zsh precmd hooks print additional output.
+]]></description>
+            <enclosure url="https://github.com/pioner92/metalterm-site/releases/download/downloads/Metalterm-0.1.3.dmg" length="5104462" type="application/octet-stream" sparkle:edSignature="Rdw397yNiHHawSS66z04lxRz3nmJyhMXnX6GNZaZLNuU6GC6jB2cKH4xRFKGafHN1BopOMYxW/fqaNz4g6ziCQ=="/>
+        </item>
+        <item>
             <title>0.1.2</title>
             <pubDate>Wed, 19 Aug 2026 22:50:18 +0200</pubDate>
             <link>https://metalterm.dev</link>

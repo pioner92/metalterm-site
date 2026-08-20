@@ -24,11 +24,16 @@ GitHub Pages, source = `main` branch, root. The custom domain is set via `CNAME`
 
 ## Releases
 
-The `.dmg` is hosted on the [`downloads`](https://github.com/pioner92/metalterm-site/releases/tag/downloads)
-release — a permanent, single tag that assets accumulate under, since the app's
-Sparkle appcast (`https://metalterm.dev/appcast.xml`) needs one stable download
-URL prefix for the whole update feed. Version history lives in the appcast, not
-in GitHub releases.
+Every build is published in two places from the Metalterm release script:
+
+- [`downloads`](https://github.com/pioner92/metalterm-site/releases/tag/downloads) is the
+  permanent asset container used by the Sparkle appcast at
+  `https://metalterm.dev/appcast.xml`;
+- `vVERSION` is the human-facing release with notes, the same notarized `.dmg`, and the
+  Latest badge. The website's download button points at this versioned asset.
+
+The duplicated assets intentionally serve different stable URLs. The release script checks
+that both GitHub SHA-256 digests match before publishing the site and appcast.
 
 ## Support
 

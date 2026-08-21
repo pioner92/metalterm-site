@@ -3,6 +3,35 @@
     <channel>
         <title>Metalterm</title>
         <item>
+            <title>0.1.4</title>
+            <pubDate>Fri, 21 Aug 2026 16:20:01 +0200</pubDate>
+            <link>https://metalterm.dev</link>
+            <sparkle:version>630</sparkle:version>
+            <sparkle:shortVersionString>0.1.4</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <description sparkle:format="markdown"><![CDATA[## What's new
+
+- Added ⌘A to select all terminal output, ⌘E to search the selection, and ⌘J to jump back to it.
+- Added mouse and Shift-arrow selection with ⌘C copying in the custom command input.
+- Added update indicators and an Update action in Settings when an installation is available.
+- Added Help menu links for reporting an issue and viewing release notes.
+
+## Changed
+
+- Homebrew installs now support both Apple silicon and Intel Macs from the same cask.
+- High-volume command output now parses and drains about 11× faster than the previous
+  release's recorded baseline (16–17 → 183–186 MB/s), with 2.5× fewer parser allocations
+  (22,505 → 9,034) and 25% smaller screen and scrollback cells.
+
+## Fixed
+
+- High-volume command output now remains visibly streaming instead of appearing frozen
+  until the command finishes.
+- Fixed repeated Unicode characters becoming garbled in terminal applications.
+]]></description>
+            <enclosure url="https://github.com/pioner92/metalterm-site/releases/download/downloads/Metalterm-0.1.4.dmg" length="5154402" type="application/octet-stream" sparkle:edSignature="FisYoa0+mqgBDDpkhg5M+m4z0Kz6zzMr4ZU5aPiQAKftJpcQWi9xeaTYyTs8n0Y1y1z2rXVZ6HNFCyEL+kdGDg=="/>
+        </item>
+        <item>
             <title>0.1.3</title>
             <pubDate>Thu, 20 Aug 2026 15:03:25 +0200</pubDate>
             <link>https://metalterm.dev</link>

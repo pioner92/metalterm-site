@@ -3,6 +3,24 @@
     <channel>
         <title>Metalterm</title>
         <item>
+            <title>0.1.5</title>
+            <pubDate>Fri, 21 Aug 2026 17:00:51 +0200</pubDate>
+            <link>https://metalterm.dev</link>
+            <sparkle:version>633</sparkle:version>
+            <sparkle:shortVersionString>0.1.5</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <description sparkle:format="markdown"><![CDATA[## What's new
+
+## Changed
+
+- Local release builds can now create a native app bundle without requiring the other macOS architecture.
+- Made Metalterm check for updates on launch so available updates appear in Settings without waiting for the daily schedule.
+
+## Fixed
+]]></description>
+            <enclosure url="https://github.com/pioner92/metalterm-site/releases/download/downloads/Metalterm-0.1.5.dmg" length="5155133" type="application/octet-stream" sparkle:edSignature="kOTVqJc73q0HXorv8B1ql3xwC0jYhGPJJtw0IlLkv3CwVQz5UG4TIIGkcy1OYgN/kUBI3KF4RnWsT9Np3/pRCQ=="/>
+        </item>
+        <item>
             <title>0.1.4</title>
             <pubDate>Fri, 21 Aug 2026 16:20:01 +0200</pubDate>
             <link>https://metalterm.dev</link>

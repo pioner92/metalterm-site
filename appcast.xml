@@ -3,6 +3,36 @@
     <channel>
         <title>Metalterm</title>
         <item>
+            <title>0.1.6</title>
+            <pubDate>Mon, 24 Aug 2026 10:39:16 +0200</pubDate>
+            <link>https://metalterm.dev</link>
+            <sparkle:version>660</sparkle:version>
+            <sparkle:shortVersionString>0.1.6</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <description sparkle:format="markdown"><![CDATA[## What's new
+
+- Added an Input dock setting that lets new zsh sessions preserve their prompt, line editor, color customizations, and matching top-to-bottom output motion.
+- Added two-axis pane layouts: split right with `Command+D` or down with `Shift+Command+D`, then navigate, resize, balance, or maximize panes from the keyboard. Split windows also gained a unified header, compact lower panes, stationary text during horizontal divider drags, smooth reflow for width changes, and subtle divider feedback.
+- Launched a new Metalterm website with verified product details, performance measurements, and clearer installation options.
+- Added thirteen dark window materials to the appearance picker, completing the designed set of twenty-one: Obsidian Paper, Soft OLED, Volcanic Stone, Graphite Fabric, Liquid Graphite, Soft Touch Polymer, Meteorite Steel, Urushi Nightfall, Charred Oak, Nocturne Velvet, Deep Field, Slate & Vellum and Forged Carbon.
+
+## Changed
+
+- Adjusted the settings layout so controls stay usable at minimum width, deferred-apply hints are clearer and centred, and Input dock offers restart, later, and cancel choices.
+- Reorganised the appearance picker into `Material` and `Classic` tabs with compact two-line theme cards, so the full set of surfaces fits the window; the Grain and Sheen sliders now follow the Material tab.
+
+## Fixed
+
+- Kept full-screen terminal content below the native tab bar without moving header controls.
+- Improved tmux integration by preserving pane hyperlinks and working directories and by rendering application-requested cursor colours.
+- Removed the empty terminal row between command output and the pinned input dock.
+- Kept the prompt and animated cursor above the status bar during resize and scroll motion.
+- Kept the view on the prompt when a window or pane changes height with the Input dock on: the latest output stays just above the dock instead of the view drifting up a line per row lost and the prompt slipping out of sight.
+- Drew a command's echo and output the moment they arrived on a full screen with the Input dock on, instead of only after the next keystroke or scroll.
+]]></description>
+            <enclosure url="https://github.com/pioner92/metalterm-site/releases/download/downloads/Metalterm-0.1.6.dmg" length="6956908" type="application/octet-stream" sparkle:edSignature="Hgsh6E9fzbM+sfZB5m94H0G+fm2ty4Vky01EnNKPPiTo4Lgpf77iYyTOqgBpl8mNqwPWPDlGYAGOUvCto+DBDg=="/>
+        </item>
+        <item>
             <title>0.1.5</title>
             <pubDate>Fri, 21 Aug 2026 17:00:51 +0200</pubDate>
             <link>https://metalterm.dev</link>
@@ -48,36 +78,6 @@
 - Fixed repeated Unicode characters becoming garbled in terminal applications.
 ]]></description>
             <enclosure url="https://github.com/pioner92/metalterm-site/releases/download/downloads/Metalterm-0.1.4.dmg" length="5154402" type="application/octet-stream" sparkle:edSignature="FisYoa0+mqgBDDpkhg5M+m4z0Kz6zzMr4ZU5aPiQAKftJpcQWi9xeaTYyTs8n0Y1y1z2rXVZ6HNFCyEL+kdGDg=="/>
-        </item>
-        <item>
-            <title>0.1.3</title>
-            <pubDate>Thu, 20 Aug 2026 15:03:25 +0200</pubDate>
-            <link>https://metalterm.dev</link>
-            <sparkle:version>584</sparkle:version>
-            <sparkle:shortVersionString>0.1.3</sparkle:shortVersionString>
-            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
-            <description sparkle:format="markdown"><![CDATA[## What's new
-
-- Added a Reset all button that restores every setting to its default value.
-- Added support for dragging files from Finder or pasting files and images into the prompt as safely escaped paths.
-
-## Changed
-
-- Metalterm releases now run natively on both Apple silicon and Intel Macs from the same download.
-- Simplified the selected Appearance theme card to use its accent border without an additional “active” label.
-- Improved compatibility with terminal applications by advertising more supported capabilities while preserving the legacy terminal-name alias.
-
-## Fixed
-
-- Option-key characters and dead-key composition now follow non-US macOS keyboard layouts, with independent automatic, macOS, and Esc+ modes for each Option key.
-- Inline terminal apps that take over typing — Claude, Codex, REPLs, and similar — now reclaim the hidden input dock's space, with no fixed app list: the terminal detects them by behavior.
-- GNU `ls` now accepts Metalterm's generated color palette without errors or losing colored output.
-- Made the Appearance settings open and scroll smoothly by caching material previews outside the main drawing path.
-- Pasted text now appears in the pinned command line immediately.
-- Background terminal content continues updating correctly.
-- Command status colors remain correct when Zsh precmd hooks print additional output.
-]]></description>
-            <enclosure url="https://github.com/pioner92/metalterm-site/releases/download/downloads/Metalterm-0.1.3.dmg" length="5104462" type="application/octet-stream" sparkle:edSignature="Rdw397yNiHHawSS66z04lxRz3nmJyhMXnX6GNZaZLNuU6GC6jB2cKH4xRFKGafHN1BopOMYxW/fqaNz4g6ziCQ=="/>
         </item>
         <item>
             <title>0.1.2</title>

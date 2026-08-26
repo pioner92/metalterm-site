@@ -3,6 +3,36 @@
     <channel>
         <title>Metalterm</title>
         <item>
+            <title>0.1.7</title>
+            <pubDate>Wed, 26 Aug 2026 13:43:52 +0200</pubDate>
+            <link>https://metalterm.dev</link>
+            <sparkle:version>679</sparkle:version>
+            <sparkle:shortVersionString>0.1.7</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <description sparkle:format="markdown"><![CDATA[## What's new
+
+- Added “New Metalterm Tab Here” and “New Metalterm Window Here” to Finder Services for opening selected folders in an exact terminal working directory.
+- Added configurable status-bar transitions: sliding path changes, odometer or drop motion for Git counters, and shared horizontal reflow.
+- Added New Window and New Tab commands to Metalterm’s Dock menu.
+
+## Changed
+
+- Added adjustable 1.0–1.4× line height with a 1.2× default, while keeping emoji, CJK glyphs, and text decorations inside their bounds, sharing pixel-identical atlases, and releasing obsolete ones after regridding.
+- Updated the status bar promptly after Git branch changes without increasing periodic Git polling.
+
+## Fixed
+
+- Kept native terminal tabs in sync with the selected light or dark terminal theme instead of the macOS appearance.
+- Clearly separated the renderer's Metal shader version from the GPU's supported Metal family in renderer settings.
+- Suggested common Git, package, container, cloud, and build-tool subcommands—including nested commands—inline even when they were absent from recent shell history.
+
+- Kept primary-screen coding agent content stable while the agent streams, repaints, and scrolls its transcript.
+- Kept command gutters uniformly thin, applied theme-correct running and result colours, and stopped them before the empty row separating consecutive commands.
+- Kept remote SSH tools usable when a server lacks MetalTerm's custom terminfo entry.
+]]></description>
+            <enclosure url="https://github.com/pioner92/metalterm-site/releases/download/downloads/Metalterm-0.1.7.dmg" length="7052937" type="application/octet-stream" sparkle:edSignature="vqGx13Cr5go9JRPjq0V/TjO+2CBxkJiTY25UleHuvK5Qs0a4PFAWS+cLj+LKYN4/yUUsuZWCDKNPa0/IN96VCA=="/>
+        </item>
+        <item>
             <title>0.1.6</title>
             <pubDate>Mon, 24 Aug 2026 10:39:16 +0200</pubDate>
             <link>https://metalterm.dev</link>
@@ -49,35 +79,6 @@
 ## Fixed
 ]]></description>
             <enclosure url="https://github.com/pioner92/metalterm-site/releases/download/downloads/Metalterm-0.1.5.dmg" length="5155133" type="application/octet-stream" sparkle:edSignature="kOTVqJc73q0HXorv8B1ql3xwC0jYhGPJJtw0IlLkv3CwVQz5UG4TIIGkcy1OYgN/kUBI3KF4RnWsT9Np3/pRCQ=="/>
-        </item>
-        <item>
-            <title>0.1.4</title>
-            <pubDate>Fri, 21 Aug 2026 16:20:01 +0200</pubDate>
-            <link>https://metalterm.dev</link>
-            <sparkle:version>630</sparkle:version>
-            <sparkle:shortVersionString>0.1.4</sparkle:shortVersionString>
-            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
-            <description sparkle:format="markdown"><![CDATA[## What's new
-
-- Added ⌘A to select all terminal output, ⌘E to search the selection, and ⌘J to jump back to it.
-- Added mouse and Shift-arrow selection with ⌘C copying in the custom command input.
-- Added update indicators and an Update action in Settings when an installation is available.
-- Added Help menu links for reporting an issue and viewing release notes.
-
-## Changed
-
-- Homebrew installs now support both Apple silicon and Intel Macs from the same cask.
-- High-volume command output now parses and drains about 11× faster than the previous
-  release's recorded baseline (16–17 → 183–186 MB/s), with 2.5× fewer parser allocations
-  (22,505 → 9,034) and 25% smaller screen and scrollback cells.
-
-## Fixed
-
-- High-volume command output now remains visibly streaming instead of appearing frozen
-  until the command finishes.
-- Fixed repeated Unicode characters becoming garbled in terminal applications.
-]]></description>
-            <enclosure url="https://github.com/pioner92/metalterm-site/releases/download/downloads/Metalterm-0.1.4.dmg" length="5154402" type="application/octet-stream" sparkle:edSignature="FisYoa0+mqgBDDpkhg5M+m4z0Kz6zzMr4ZU5aPiQAKftJpcQWi9xeaTYyTs8n0Y1y1z2rXVZ6HNFCyEL+kdGDg=="/>
         </item>
         <item>
             <title>0.1.2</title>

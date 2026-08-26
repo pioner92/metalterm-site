@@ -2,6 +2,9 @@
 
 The landing page for [Metalterm](https://metalterm.dev) — a GPU-rendered macOS terminal built on Metal 3.
 
+[![Sponsor](https://img.shields.io/badge/Sponsor-30363D?style=for-the-badge&logo=githubsponsors&logoColor=white)](https://github.com/sponsors/pioner92)
+[![Buy Me a Coffee](https://img.shields.io/badge/Buy%20Me%20a%20Coffee-FFDD00?style=for-the-badge&logo=buymeacoffee&logoColor=black)](https://buymeacoffee.com/pioner92)
+
 ![Metalterm demo](assets/demo.gif)
 
 ## What's here

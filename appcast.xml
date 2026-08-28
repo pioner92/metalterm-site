@@ -3,6 +3,32 @@
     <channel>
         <title>Metalterm</title>
         <item>
+            <title>0.1.8</title>
+            <pubDate>Fri, 28 Aug 2026 14:12:05 +0200</pubDate>
+            <link>https://metalterm.dev</link>
+            <sparkle:version>695</sparkle:version>
+            <sparkle:shortVersionString>0.1.8</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <description sparkle:format="markdown"><![CDATA[## What's new
+
+- Added an opt-in setting that lets macOS restore terminal windows to their previous Spaces after login.
+- Added confirmation before closing panes, tabs, windows, or the app when a foreground process is running or a window contains multiple tabs, with configurable never, running, and always modes.
+- Made files and folders in focused terminal windows openable with ⌘-click, including bare `ls` names, paths with spaces, and historical relative paths.
+- Added right-aligned execution times and a smoothly animated live command status with a soft fade-in and an adjustable display threshold in Settings.
+- Added adjustable macOS background blur that follows Reduce Transparency and stays off for fully opaque windows, plus control over whether window opacity includes the header and status bars.
+
+## Changed
+
+## Fixed
+
+- Cleared terminal selections with Escape, typed input, ordinary navigation keys, and IME composition while preserving keyboard selection and each key's normal terminal action.
+- Cleared the query and all match highlights whenever Find is closed.
+- Kept terminal history continuous during animated multi-line and repeated output instead of briefly opening a blank band at the top of the window.
+- Made trackpad and precise-mouse history scrolling update smoothly at the display refresh rate, settle consistently at the live bottom, stop promptly after momentum ends, and restore zero-frame idle.
+]]></description>
+            <enclosure url="https://github.com/pioner92/metalterm-site/releases/download/downloads/Metalterm-0.1.8.dmg" length="7241750" type="application/octet-stream" sparkle:edSignature="F1vOywJKskWZxOT6TPAVF4raOxu7wCRAFPV0ItcUNwbUW2TwHNDBh9rzcB6eoakQmE4ifbAF6k9H0izvJx0+Bw=="/>
+        </item>
+        <item>
             <title>0.1.7</title>
             <pubDate>Wed, 26 Aug 2026 13:43:52 +0200</pubDate>
             <link>https://metalterm.dev</link>
@@ -61,24 +87,6 @@
 - Drew a command's echo and output the moment they arrived on a full screen with the Input dock on, instead of only after the next keystroke or scroll.
 ]]></description>
             <enclosure url="https://github.com/pioner92/metalterm-site/releases/download/downloads/Metalterm-0.1.6.dmg" length="6956908" type="application/octet-stream" sparkle:edSignature="Hgsh6E9fzbM+sfZB5m94H0G+fm2ty4Vky01EnNKPPiTo4Lgpf77iYyTOqgBpl8mNqwPWPDlGYAGOUvCto+DBDg=="/>
-        </item>
-        <item>
-            <title>0.1.5</title>
-            <pubDate>Fri, 21 Aug 2026 17:00:51 +0200</pubDate>
-            <link>https://metalterm.dev</link>
-            <sparkle:version>633</sparkle:version>
-            <sparkle:shortVersionString>0.1.5</sparkle:shortVersionString>
-            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
-            <description sparkle:format="markdown"><![CDATA[## What's new
-
-## Changed
-
-- Local release builds can now create a native app bundle without requiring the other macOS architecture.
-- Made Metalterm check for updates on launch so available updates appear in Settings without waiting for the daily schedule.
-
-## Fixed
-]]></description>
-            <enclosure url="https://github.com/pioner92/metalterm-site/releases/download/downloads/Metalterm-0.1.5.dmg" length="5155133" type="application/octet-stream" sparkle:edSignature="kOTVqJc73q0HXorv8B1ql3xwC0jYhGPJJtw0IlLkv3CwVQz5UG4TIIGkcy1OYgN/kUBI3KF4RnWsT9Np3/pRCQ=="/>
         </item>
         <item>
             <title>0.1.2</title>

@@ -3,6 +3,43 @@
     <channel>
         <title>Metalterm</title>
         <item>
+            <title>0.1.9</title>
+            <pubDate>Thu, 03 Sep 2026 23:32:38 +0200</pubDate>
+            <link>https://metalterm.dev</link>
+            <sparkle:version>1146</sparkle:version>
+            <sparkle:shortVersionString>0.1.9</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <description sparkle:format="markdown"><![CDATA[## What's new
+
+- Added SGR-pixel mouse reporting for applications that request precise device-pixel coordinates.
+- Added the VS Code-compatible Palenight palette and kept the previous palette as Palenight Dark.
+- Added active Python virtual-environment names to the session status bar when zsh uses the Input Dock.
+- Added an option to disable scroll smoothing for compatibility with external scrolling utilities such as Mos.
+- Added a native context menu to the normal terminal surface for copying, pasting, splitting panes, and clearing the buffer.
+## Changed
+
+- Removed command-output block folding, its keyboard shortcut, and its Motion setting.
+- Replaced Commit and New line effects with one Buffer lift control offering Off, the original Smooth motion, and the former Snap motion as Spring.
+- Combined the status bar motion controls into one switch with Odometer counter animation.
+- Made Shift-click and plain Shift-arrow keys extend or shrink terminal selections from their fixed edge.
+- Made cold starts show the terminal window and its stable input dock substantially faster.
+- Made new tabs appear immediately while their shell and integration are prepared off the UI thread.
+- Reduced typing latency by sending ready terminal input immediately.
+- Cut multi-tab memory use by releasing full-size Metal drawable buffers for inactive tabs.
+
+## Fixed
+
+- Reset terminal modes and live metadata completely while preserving MetalTerm scrollback and terminal color overrides.
+- Handled complete G0–G3 character-set designation sequences without increasing terminal memory use.
+- Matched reverse-wrap behavior for backspace and backward cursor movement across lines.
+- Kept terminal content, cursor placement, wrapping, and synchronized output stable through window resizes.
+- Made mouse tracking honor the latest requested event level while keeping mode queries accurate.
+- Restored complete cursor state across save/restore sequences and alternate-screen transitions.
+- Preserved complex Unicode grapheme clusters—including long combining sequences, emoji variation selectors, and ZWJ emoji—across streamed terminal input, terminal controls, resizes, and screen switches.
+]]></description>
+            <enclosure url="https://github.com/pioner92/metalterm-site/releases/download/downloads/Metalterm-0.1.9.dmg" length="7451913" type="application/octet-stream" sparkle:edSignature="enf7dvJJ65en0kOo5/jR9I/meubEyZg6Y61vGVWPNBrgWtLQ9CGjKZfGymdSDolW1ACZ8dkak0r+PT2bEXBpCA=="/>
+        </item>
+        <item>
             <title>0.1.8</title>
             <pubDate>Fri, 28 Aug 2026 14:12:05 +0200</pubDate>
             <link>https://metalterm.dev</link>
@@ -57,36 +94,6 @@
 - Kept remote SSH tools usable when a server lacks MetalTerm's custom terminfo entry.
 ]]></description>
             <enclosure url="https://github.com/pioner92/metalterm-site/releases/download/downloads/Metalterm-0.1.7.dmg" length="7052937" type="application/octet-stream" sparkle:edSignature="vqGx13Cr5go9JRPjq0V/TjO+2CBxkJiTY25UleHuvK5Qs0a4PFAWS+cLj+LKYN4/yUUsuZWCDKNPa0/IN96VCA=="/>
-        </item>
-        <item>
-            <title>0.1.6</title>
-            <pubDate>Mon, 24 Aug 2026 10:39:16 +0200</pubDate>
-            <link>https://metalterm.dev</link>
-            <sparkle:version>660</sparkle:version>
-            <sparkle:shortVersionString>0.1.6</sparkle:shortVersionString>
-            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
-            <description sparkle:format="markdown"><![CDATA[## What's new
-
-- Added an Input dock setting that lets new zsh sessions preserve their prompt, line editor, color customizations, and matching top-to-bottom output motion.
-- Added two-axis pane layouts: split right with `Command+D` or down with `Shift+Command+D`, then navigate, resize, balance, or maximize panes from the keyboard. Split windows also gained a unified header, compact lower panes, stationary text during horizontal divider drags, smooth reflow for width changes, and subtle divider feedback.
-- Launched a new Metalterm website with verified product details, performance measurements, and clearer installation options.
-- Added thirteen dark window materials to the appearance picker, completing the designed set of twenty-one: Obsidian Paper, Soft OLED, Volcanic Stone, Graphite Fabric, Liquid Graphite, Soft Touch Polymer, Meteorite Steel, Urushi Nightfall, Charred Oak, Nocturne Velvet, Deep Field, Slate & Vellum and Forged Carbon.
-
-## Changed
-
-- Adjusted the settings layout so controls stay usable at minimum width, deferred-apply hints are clearer and centred, and Input dock offers restart, later, and cancel choices.
-- Reorganised the appearance picker into `Material` and `Classic` tabs with compact two-line theme cards, so the full set of surfaces fits the window; the Grain and Sheen sliders now follow the Material tab.
-
-## Fixed
-
-- Kept full-screen terminal content below the native tab bar without moving header controls.
-- Improved tmux integration by preserving pane hyperlinks and working directories and by rendering application-requested cursor colours.
-- Removed the empty terminal row between command output and the pinned input dock.
-- Kept the prompt and animated cursor above the status bar during resize and scroll motion.
-- Kept the view on the prompt when a window or pane changes height with the Input dock on: the latest output stays just above the dock instead of the view drifting up a line per row lost and the prompt slipping out of sight.
-- Drew a command's echo and output the moment they arrived on a full screen with the Input dock on, instead of only after the next keystroke or scroll.
-]]></description>
-            <enclosure url="https://github.com/pioner92/metalterm-site/releases/download/downloads/Metalterm-0.1.6.dmg" length="6956908" type="application/octet-stream" sparkle:edSignature="Hgsh6E9fzbM+sfZB5m94H0G+fm2ty4Vky01EnNKPPiTo4Lgpf77iYyTOqgBpl8mNqwPWPDlGYAGOUvCto+DBDg=="/>
         </item>
         <item>
             <title>0.1.2</title>

@@ -3,6 +3,23 @@
     <channel>
         <title>Metalterm</title>
         <item>
+            <title>0.1.10</title>
+            <pubDate>Fri, 04 Sep 2026 09:52:47 +0200</pubDate>
+            <link>https://metalterm.dev</link>
+            <sparkle:version>1149</sparkle:version>
+            <sparkle:shortVersionString>0.1.10</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <description sparkle:format="markdown"><![CDATA[## What's new
+
+## Changed
+
+## Fixed
+
+- Prevented Input Dock from recursively wrapping zsh line-editor hooks when shell plugins use `add-zle-hook-widget`.
+]]></description>
+            <enclosure url="https://github.com/pioner92/metalterm-site/releases/download/downloads/Metalterm-0.1.10.dmg" length="7453746" type="application/octet-stream" sparkle:edSignature="FwdIz4iKoq9RsOMTIPIDZOMpikpw9MGPa6YWEmV7nOpyGW88MmNFLoZsUSyxg1dM8+tqXJQk836nKI0XbDvvAA=="/>
+        </item>
+        <item>
             <title>0.1.9</title>
             <pubDate>Thu, 03 Sep 2026 23:32:38 +0200</pubDate>
             <link>https://metalterm.dev</link>
@@ -64,36 +81,6 @@
 - Made trackpad and precise-mouse history scrolling update smoothly at the display refresh rate, settle consistently at the live bottom, stop promptly after momentum ends, and restore zero-frame idle.
 ]]></description>
             <enclosure url="https://github.com/pioner92/metalterm-site/releases/download/downloads/Metalterm-0.1.8.dmg" length="7241750" type="application/octet-stream" sparkle:edSignature="F1vOywJKskWZxOT6TPAVF4raOxu7wCRAFPV0ItcUNwbUW2TwHNDBh9rzcB6eoakQmE4ifbAF6k9H0izvJx0+Bw=="/>
-        </item>
-        <item>
-            <title>0.1.7</title>
-            <pubDate>Wed, 26 Aug 2026 13:43:52 +0200</pubDate>
-            <link>https://metalterm.dev</link>
-            <sparkle:version>679</sparkle:version>
-            <sparkle:shortVersionString>0.1.7</sparkle:shortVersionString>
-            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
-            <description sparkle:format="markdown"><![CDATA[## What's new
-
-- Added “New Metalterm Tab Here” and “New Metalterm Window Here” to Finder Services for opening selected folders in an exact terminal working directory.
-- Added configurable status-bar transitions: sliding path changes, odometer or drop motion for Git counters, and shared horizontal reflow.
-- Added New Window and New Tab commands to Metalterm’s Dock menu.
-
-## Changed
-
-- Added adjustable 1.0–1.4× line height with a 1.2× default, while keeping emoji, CJK glyphs, and text decorations inside their bounds, sharing pixel-identical atlases, and releasing obsolete ones after regridding.
-- Updated the status bar promptly after Git branch changes without increasing periodic Git polling.
-
-## Fixed
-
-- Kept native terminal tabs in sync with the selected light or dark terminal theme instead of the macOS appearance.
-- Clearly separated the renderer's Metal shader version from the GPU's supported Metal family in renderer settings.
-- Suggested common Git, package, container, cloud, and build-tool subcommands—including nested commands—inline even when they were absent from recent shell history.
-
-- Kept primary-screen coding agent content stable while the agent streams, repaints, and scrolls its transcript.
-- Kept command gutters uniformly thin, applied theme-correct running and result colours, and stopped them before the empty row separating consecutive commands.
-- Kept remote SSH tools usable when a server lacks MetalTerm's custom terminfo entry.
-]]></description>
-            <enclosure url="https://github.com/pioner92/metalterm-site/releases/download/downloads/Metalterm-0.1.7.dmg" length="7052937" type="application/octet-stream" sparkle:edSignature="vqGx13Cr5go9JRPjq0V/TjO+2CBxkJiTY25UleHuvK5Qs0a4PFAWS+cLj+LKYN4/yUUsuZWCDKNPa0/IN96VCA=="/>
         </item>
         <item>
             <title>0.1.2</title>

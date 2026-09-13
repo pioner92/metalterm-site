@@ -3,6 +3,32 @@
     <channel>
         <title>Metalterm</title>
         <item>
+            <title>0.1.12</title>
+            <pubDate>Sun, 13 Sep 2026 17:27:23 +0200</pubDate>
+            <link>https://metalterm.dev</link>
+            <sparkle:version>1174</sparkle:version>
+            <sparkle:shortVersionString>0.1.12</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <description sparkle:format="markdown"><![CDATA[## What's new
+
+- Added lazy custom flat themes in Settings, with Ghostty and Kitty import and editable templates created from the current theme.
+
+## Changed
+
+## Fixed
+
+- Fixed colour emoji rendering in additional tabs and splits.
+- Kept plain-text and program-authored links whole, hoverable, and clickable after terminal resizing wraps them across rows.
+- Hardened automatic updates and disabled Check for Updates while Sparkle cannot start another check.
+- Fixed Find so CJK text, combining marks, and emoji clusters match without losing exact grid highlighting.
+- Restored terminal windows to their previous macOS Spaces with their split layouts, pane directories, focus, and last visible terminal text while fresh shells start.
+- Kept typing responsive when other native tabs are hidden by suspending their display clocks.
+- Restored terminal rendering after macOS wakes sleeping displays or moves a window between displays.
+- Kept Command-hover file and folder links stable when another native tab was hidden.
+]]></description>
+            <enclosure url="https://github.com/pioner92/metalterm-site/releases/download/downloads/Metalterm-0.1.12.dmg" length="7728112" type="application/octet-stream" sparkle:edSignature="VVXusfQKdg8Ca70SAc/f5bFGrZY5q1jL70IHVWnnc5r3vsI9Hms0UTULoWrnxrLKm7f7Y43kh9G19UTcL3WHDg=="/>
+        </item>
+        <item>
             <title>0.1.11</title>
             <pubDate>Thu, 10 Sep 2026 17:18:11 +0200</pubDate>
             <link>https://metalterm.dev</link>
@@ -42,43 +68,6 @@
 - Prevented Input Dock from recursively wrapping zsh line-editor hooks when shell plugins use `add-zle-hook-widget`.
 ]]></description>
             <enclosure url="https://github.com/pioner92/metalterm-site/releases/download/downloads/Metalterm-0.1.10.dmg" length="7453746" type="application/octet-stream" sparkle:edSignature="FwdIz4iKoq9RsOMTIPIDZOMpikpw9MGPa6YWEmV7nOpyGW88MmNFLoZsUSyxg1dM8+tqXJQk836nKI0XbDvvAA=="/>
-        </item>
-        <item>
-            <title>0.1.9</title>
-            <pubDate>Thu, 03 Sep 2026 23:32:38 +0200</pubDate>
-            <link>https://metalterm.dev</link>
-            <sparkle:version>1146</sparkle:version>
-            <sparkle:shortVersionString>0.1.9</sparkle:shortVersionString>
-            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
-            <description sparkle:format="markdown"><![CDATA[## What's new
-
-- Added SGR-pixel mouse reporting for applications that request precise device-pixel coordinates.
-- Added the VS Code-compatible Palenight palette and kept the previous palette as Palenight Dark.
-- Added active Python virtual-environment names to the session status bar when zsh uses the Input Dock.
-- Added an option to disable scroll smoothing for compatibility with external scrolling utilities such as Mos.
-- Added a native context menu to the normal terminal surface for copying, pasting, splitting panes, and clearing the buffer.
-## Changed
-
-- Removed command-output block folding, its keyboard shortcut, and its Motion setting.
-- Replaced Commit and New line effects with one Buffer lift control offering Off, the original Smooth motion, and the former Snap motion as Spring.
-- Combined the status bar motion controls into one switch with Odometer counter animation.
-- Made Shift-click and plain Shift-arrow keys extend or shrink terminal selections from their fixed edge.
-- Made cold starts show the terminal window and its stable input dock substantially faster.
-- Made new tabs appear immediately while their shell and integration are prepared off the UI thread.
-- Reduced typing latency by sending ready terminal input immediately.
-- Cut multi-tab memory use by releasing full-size Metal drawable buffers for inactive tabs.
-
-## Fixed
-
-- Reset terminal modes and live metadata completely while preserving MetalTerm scrollback and terminal color overrides.
-- Handled complete G0–G3 character-set designation sequences without increasing terminal memory use.
-- Matched reverse-wrap behavior for backspace and backward cursor movement across lines.
-- Kept terminal content, cursor placement, wrapping, and synchronized output stable through window resizes.
-- Made mouse tracking honor the latest requested event level while keeping mode queries accurate.
-- Restored complete cursor state across save/restore sequences and alternate-screen transitions.
-- Preserved complex Unicode grapheme clusters—including long combining sequences, emoji variation selectors, and ZWJ emoji—across streamed terminal input, terminal controls, resizes, and screen switches.
-]]></description>
-            <enclosure url="https://github.com/pioner92/metalterm-site/releases/download/downloads/Metalterm-0.1.9.dmg" length="7451913" type="application/octet-stream" sparkle:edSignature="enf7dvJJ65en0kOo5/jR9I/meubEyZg6Y61vGVWPNBrgWtLQ9CGjKZfGymdSDolW1ACZ8dkak0r+PT2bEXBpCA=="/>
         </item>
         <item>
             <title>0.1.2</title>

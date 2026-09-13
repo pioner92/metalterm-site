@@ -16,6 +16,11 @@ requests. The application source code is private and is not hosted in this repos
 
 Download the latest notarized macOS release from [metalterm.dev](https://metalterm.dev).
 
+## Documentation
+
+- [Create or port a custom theme](docs/custom-themes.md) — start from a template,
+  import a Ghostty or Kitty theme, or give the conversion contract to an AI agent.
+
 ## Feedback and support
 
 - Report reproducible problems in [Issues](https://github.com/pioner92/metalterm-site/issues/new).

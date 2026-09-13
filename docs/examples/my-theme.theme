@@ -1,0 +1,33 @@
+# Metalterm custom flat theme. Compatible with Ghostty palette syntax.
+name = My Theme
+note = cool blue night
+
+# Metalterm UI roles.
+background = #10131a
+foreground = #d8dee9
+dim = #7f8999
+accent = #82aaff
+link = #89ddff
+warning = #ffc777
+error = #ff757f
+success = #c3e88d
+
+# ANSI 0-7: black, red, green, yellow, blue, magenta, cyan, white.
+palette = 0=#1b1d23
+palette = 1=#ff757f
+palette = 2=#c3e88d
+palette = 3=#ffc777
+palette = 4=#82aaff
+palette = 5=#c099ff
+palette = 6=#89ddff
+palette = 7=#d8dee9
+
+# ANSI 8-15: bright variants in the same order.
+palette = 8=#5c6370
+palette = 9=#ff98a4
+palette = 10=#d7ffa8
+palette = 11=#ffda9a
+palette = 12=#9fbdff
+palette = 13=#d2b6ff
+palette = 14=#a8efff
+palette = 15=#ffffff

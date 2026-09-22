@@ -3,6 +3,38 @@
     <channel>
         <title>Metalterm</title>
         <item>
+            <title>0.2.0</title>
+            <pubDate>Tue, 22 Sep 2026 16:00:49 +0200</pubDate>
+            <link>https://metalterm.dev</link>
+            <sparkle:version>1193</sparkle:version>
+            <sparkle:shortVersionString>0.2.0</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <description sparkle:format="markdown"><![CDATA[## What's new
+
+- Replaced native terminal tab groups with custom tabs: immediate creation, smooth close and reorder motion, hover-close controls, equal adaptive widths that scroll into a tab-list picker when they run out of room, a Close Tab action for VoiceOver, and the Settings shortcut at the right edge.
+- Added live tab dragging between windows without restarting sessions, with a window preview when a tab is dragged out, deep links for focusing a tab from another app, and exact focus restoration.
+- Added a compact single-session header that gives unused tab-strip space back to the terminal grid, with a global “Always show tabs” setting and a per-window “Show Tab Bar” control.
+- Added protocol-driven tab status indicators: badges pulse while work is running, briefly confirm success, and retain background failures, while explicit progress reports use a display-synchronised lower bar.
+- Added Move Tab to New Window and Close Other Tabs to the Window menu, and Move Tab to New Window to each tab's context menu, so tabs can be managed without dragging.
+- Reduced the shipped universal app download size.
+
+## Changed
+
+- Removed the per-window tab and pane limit while window restoration is off; with restoration on, an oversized window now restores its selected tab and as many others as fit instead of a single fresh pane.
+- Reduced graphics memory retained by hidden tabs while preserving their sessions and stable rendering.
+
+## Fixed
+
+- Stopped the Input Dock from filling in late when a tab opens: the prompt chevron and the typing hint are now drawn from the tab's first frame instead of appearing together once the shell finished starting, and the caret no longer changes size and place when they do.
+- Stopped the Input Dock from inviting a command while the shell is still using the screen: a startup file that asks a question, such as an ssh key passphrase, keeps its own prompt without “type a command” appearing underneath it.
+- Preserved the working directory when several tabs are opened in quick succession.
+- Stopped false close warnings while a shell is still starting, without discarding typeahead or real jobs.
+- Closing tabs whose shells are still starting no longer briefly stalls the interface.
+- Applied UI Scale changes immediately instead of waiting for the next interaction.
+]]></description>
+            <enclosure url="https://github.com/pioner92/metalterm-site/releases/download/downloads/Metalterm-0.2.0.dmg" length="7906483" type="application/octet-stream" sparkle:edSignature="E+mXNxqpuj1tDLgSoU3MiRndyUGih1ipDPOvXmDoHvgDdG9wXfkGGab0xICvXLDeJEw+lGIdDmpFYuUqFPz4Cw=="/>
+        </item>
+        <item>
             <title>0.1.12</title>
             <pubDate>Sun, 13 Sep 2026 17:27:23 +0200</pubDate>
             <link>https://metalterm.dev</link>
@@ -51,23 +83,6 @@
 - Made Input Dock selections start from blank space and keep the caret on the active edge, including emoji, with a native text-selection pointer over selectable terminal text.
 ]]></description>
             <enclosure url="https://github.com/pioner92/metalterm-site/releases/download/downloads/Metalterm-0.1.11.dmg" length="7543772" type="application/octet-stream" sparkle:edSignature="LJvryzwmlq9CJQYmvUwEtvCl6qv9QZX34U5N+DdsKfqme51NHfN+2NXLBJkHJ3OoSnGXNxYw5AzZtJ6pQCqdDg=="/>
-        </item>
-        <item>
-            <title>0.1.10</title>
-            <pubDate>Fri, 04 Sep 2026 09:52:47 +0200</pubDate>
-            <link>https://metalterm.dev</link>
-            <sparkle:version>1149</sparkle:version>
-            <sparkle:shortVersionString>0.1.10</sparkle:shortVersionString>
-            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
-            <description sparkle:format="markdown"><![CDATA[## What's new
-
-## Changed
-
-## Fixed
-
-- Prevented Input Dock from recursively wrapping zsh line-editor hooks when shell plugins use `add-zle-hook-widget`.
-]]></description>
-            <enclosure url="https://github.com/pioner92/metalterm-site/releases/download/downloads/Metalterm-0.1.10.dmg" length="7453746" type="application/octet-stream" sparkle:edSignature="FwdIz4iKoq9RsOMTIPIDZOMpikpw9MGPa6YWEmV7nOpyGW88MmNFLoZsUSyxg1dM8+tqXJQk836nKI0XbDvvAA=="/>
         </item>
         <item>
             <title>0.1.2</title>

@@ -3,6 +3,31 @@
     <channel>
         <title>Metalterm</title>
         <item>
+            <title>0.2.1</title>
+            <pubDate>Mon, 05 Oct 2026 13:00:17 +0200</pubDate>
+            <link>https://metalterm.dev</link>
+            <sparkle:version>1205</sparkle:version>
+            <sparkle:shortVersionString>0.2.1</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <description sparkle:format="markdown"><![CDATA[## Changed
+
+- Tab hover and selection now look the same in every theme: inactive tabs show a faint pill, hover brightens it noticeably, and the selected tab stands out clearly. The new-tab and tab-list buttons use the same hover tone.
+
+## Fixed
+
+- Fixed Ctrl shortcuts on non-Latin keyboard layouts in applications using the Kitty keyboard protocol, including Claude Code.
+- Fixed Ctrl+Enter opening the context menu instead of reaching terminal applications.
+- Fixed the next/previous tab shortcuts (⌘⇧] and ⌘⇧[), which only switched tabs while a non-Latin keyboard layout was active.
+- Fixed Find and the command palette ignoring input methods: Korean text now composes into the field as syllables instead of separate letters, so searching for text like 하이 finds it.
+- Fixed the whole window briefly flashing to a flat background when switching to, closing, or moving a tab, and a tab you switched back to fading in from a dimmed state.
+- Fixed zsh command history being kept apart from other terminals: commands typed elsewhere now appear in Metalterm, and commands run in Metalterm are saved to your usual history file instead of being lost after an update. Up arrow also no longer steps through the whole history twice.
+- Fixed command output pressing against the input dock after running `source ~/.zshrc` with prompt themes such as Pure.
+- Fixed a "maximum nested function level reached" error on every zsh prompt, and the input dock going unresponsive with it, when fast-syntax-highlighting or an older zsh-syntax-highlighting loaded after startup or was sourced again.
+- Fixed the settings window footer naming ⌘, as the way to close it; it now shows Esc, the key that actually closes the window.
+]]></description>
+            <enclosure url="https://github.com/pioner92/metalterm-site/releases/download/downloads/Metalterm-0.2.1.dmg" length="7922381" type="application/octet-stream" sparkle:edSignature="llEyA7iQHm4Ly2nbEuwcxwXdZjEEQTix+v8qtTXaTlSaEhYd6w5XS2MUs5FYfI1xtWZrjNCcBUDG9NTh4fRVCQ=="/>
+        </item>
+        <item>
             <title>0.2.0</title>
             <pubDate>Tue, 22 Sep 2026 16:00:49 +0200</pubDate>
             <link>https://metalterm.dev</link>
@@ -59,30 +84,6 @@
 - Kept Command-hover file and folder links stable when another native tab was hidden.
 ]]></description>
             <enclosure url="https://github.com/pioner92/metalterm-site/releases/download/downloads/Metalterm-0.1.12.dmg" length="7728112" type="application/octet-stream" sparkle:edSignature="VVXusfQKdg8Ca70SAc/f5bFGrZY5q1jL70IHVWnnc5r3vsI9Hms0UTULoWrnxrLKm7f7Y43kh9G19UTcL3WHDg=="/>
-        </item>
-        <item>
-            <title>0.1.11</title>
-            <pubDate>Thu, 10 Sep 2026 17:18:11 +0200</pubDate>
-            <link>https://metalterm.dev</link>
-            <sparkle:version>1159</sparkle:version>
-            <sparkle:shortVersionString>0.1.11</sparkle:shortVersionString>
-            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
-            <description sparkle:format="markdown"><![CDATA[## What's new
-
-## Changed
-
-- Renamed the instant Cursor motion option from Snap to Off.
-
-## Fixed
-
-- Ran configured Nushell startup commands before the first prompt, kept prompts correct and responsive while typing and resizing, and pasted file paths literally in Nushell and fish, including names with spaces, quotes, and newlines.
-- Kept application, terminal, and Control shortcuts working after switching to a non-Latin keyboard layout.
-- Moved every shell's input to the top when Input Dock is disabled, including custom launchers.
-- Moved the live shell cursor to clicked positions in the input line, with or without Input Dock.
-- Deleted selected Input Dock text with Backspace or Forward Delete.
-- Made Input Dock selections start from blank space and keep the caret on the active edge, including emoji, with a native text-selection pointer over selectable terminal text.
-]]></description>
-            <enclosure url="https://github.com/pioner92/metalterm-site/releases/download/downloads/Metalterm-0.1.11.dmg" length="7543772" type="application/octet-stream" sparkle:edSignature="LJvryzwmlq9CJQYmvUwEtvCl6qv9QZX34U5N+DdsKfqme51NHfN+2NXLBJkHJ3OoSnGXNxYw5AzZtJ6pQCqdDg=="/>
         </item>
         <item>
             <title>0.1.2</title>
